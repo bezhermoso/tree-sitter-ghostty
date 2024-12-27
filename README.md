@@ -5,6 +5,9 @@
 
 Tree-sitter grammar/parser for [Ghostty] configuration files
 
+<img width="416" alt="SCR-20241227-cwql" src="https://github.com/user-attachments/assets/143dd0f9-c28d-4bfe-a084-db6bf4ac5dc9" />
+
+
 ## How to use
 
 ### Neovim
