@@ -1,0 +1,50 @@
+# vim: filetype=ghostty
+
+# Terminal
+term = "xterm-256color"
+
+# Fonts
+font-family = "MonispaceNE NFM"
+font-size = 12
+font-thicken = true
+
+# Window
+title = Ghostty
+background = #333534
+window-width = 80
+window-height = 26
+window-padding-x = 5
+window-padding-y = 1
+window-colorspace = display-p3
+macos-titlebar-style = native
+
+# Keyboard
+macos-option-as-alt = true
+
+# Gruvbox
+palette = 0=#202020
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#d8a657
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#ddc7a1
+palette = 8=#5a524c
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#fbf1c7
+background = 202020
+foreground = ddc7a1
+cursor-color = ddc7a1 
+selection-background = 504945
+selection-foreground = ddc7a1
+
+macos-icon-ghost-color = ddc7a1
+macos-icon-screen-color = 202020
+
+config-file = ~/.config/ghostty/theme
