@@ -40,6 +40,10 @@
           "named": true
         },
         {
+          "type": "hex_color",
+          "named": true
+        },
+        {
           "type": "number_literal",
           "named": true
         },
@@ -78,22 +82,7 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "equal_sign",
-          "named": true
-        }
-      ]
     }
-  },
-  {
-    "type": "raw_value",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "source_file",
@@ -129,6 +118,10 @@
     "named": false
   },
   {
+    "type": "=",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -137,12 +130,12 @@
     "named": true
   },
   {
-    "type": "equal_sign",
-    "named": true
-  },
-  {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "hex_color",
+    "named": true
   },
   {
     "type": "number_literal",
@@ -154,6 +147,10 @@
   },
   {
     "type": "percent_adjustment",
+    "named": true
+  },
+  {
+    "type": "raw_value",
     "named": true
   },
   {

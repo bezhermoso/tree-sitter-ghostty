@@ -62,8 +62,8 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "equal_sign"
+          "type": "STRING",
+          "value": "="
         },
         {
           "type": "CHOICE",
@@ -116,6 +116,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "hex_color"
+        },
+        {
+          "type": "SYMBOL",
           "name": "raw_value"
         }
       ]
@@ -138,21 +142,17 @@
       "value": "[0-9]+(\\.[0-9]+)?"
     },
     "adjustment": {
-      "type": "PREC_DYNAMIC",
-      "value": 0,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "percent_adjustment"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "numeric_adjustment"
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "percent_adjustment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "numeric_adjustment"
+        }
+      ]
     },
     "percent_adjustment": {
       "type": "PATTERN",
@@ -201,13 +201,13 @@
         }
       ]
     },
+    "hex_color": {
+      "type": "PATTERN",
+      "value": "#?[0-9a-fA-F]{3,8}"
+    },
     "raw_value": {
-      "type": "PREC_DYNAMIC",
-      "value": 10,
-      "content": {
-        "type": "PATTERN",
-        "value": "[^\\r\\n]+"
-      }
+      "type": "PATTERN",
+      "value": "[^\\r\\n]+"
     }
   },
   "extras": [

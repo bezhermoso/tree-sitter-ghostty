@@ -9,6 +9,7 @@
 const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
+const hex_color = /#?[0-9a-fA-F]{3,8}/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -22,7 +23,7 @@ module.exports = grammar({
     comment: $ => token(seq(token.immediate("#"), alias(/[^\r\n]*/, $.text), newline)),
     directive: $ => seq(
       field("name", $.config_name),
-      $.equal_sign,
+      "=",
       optional(field("value", $.config_value)),
       newline,
     ),
@@ -34,24 +35,24 @@ module.exports = grammar({
       $.string_literal,
       $.number_literal,
       $.adjustment,
+      $.hex_color,
       $.raw_value,
     ),
 
     boolean_literal: $ => choice("true", "false"),
     number_literal: $ => number,
-    adjustment: $ => prec.dynamic(0, choice(
+    adjustment: $ => choice(
       $.percent_adjustment,
       $.numeric_adjustment,
-    )),
+    ),
     percent_adjustment: $ => /[+-]?[0-9]+%/,
     numeric_adjustment: $ => /[+-]+[0-9]+/,
     string_literal: $ => choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
     ),
-    raw_value: $ => prec.dynamic(10, anything),
+    hex_color: $ => hex_color,
+    // Fallback
+    raw_value: $ => anything,
   },
-  conficts: $ => [
-    [$.raw_value, $.adjustment],
-  ]
 });
