@@ -24,7 +24,105 @@
     "fields": {}
   },
   {
-    "type": "config_value",
+    "type": "directive",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "palette_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "palette_property",
+          "named": true
+        },
+        {
+          "type": "palette_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "palette_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hex_color",
+          "named": true
+        },
+        {
+          "type": "palette_index",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "raw_value",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "palette_directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "value",
     "named": true,
     "fields": {},
     "children": {
@@ -59,57 +157,6 @@
     }
   },
   {
-    "type": "directive",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "config_name",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "config_value",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "source_file",
-    "named": true,
-    "root": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "directive",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "string_literal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "\"",
     "named": false
   },
@@ -123,10 +170,6 @@
   },
   {
     "type": "comment",
-    "named": true
-  },
-  {
-    "type": "config_name",
     "named": true
   },
   {
@@ -146,11 +189,19 @@
     "named": true
   },
   {
+    "type": "palette_index",
+    "named": true
+  },
+  {
+    "type": "palette_property",
+    "named": true
+  },
+  {
     "type": "percent_adjustment",
     "named": true
   },
   {
-    "type": "raw_value",
+    "type": "property",
     "named": true
   },
   {

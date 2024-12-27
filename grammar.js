@@ -10,6 +10,7 @@ const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
 const hex_color = /#?[0-9a-fA-F]{3,8}/;
+const hex_color_with_octothorpe = /#[0-9a-fA-F]{3,8}/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -19,17 +20,21 @@ module.exports = grammar({
         newline,
         $.comment,
         $.directive,
+        $.palette_directive,
+        // TODO: Key-binding directive
       )),
     comment: $ => token(seq(token.immediate("#"), alias(/[^\r\n]*/, $.text), newline)),
     directive: $ => seq(
-      field("name", $.config_name),
+      field("name", $.property),
       "=",
-      optional(field("value", $.config_value)),
+      optional(field("value", $.value)),
       newline,
     ),
-    // kebab-case
-    config_name : $ => /[a-z]+(-[a-z]+)*/,
-    config_value: $ => choice(
+    // Property names are kebab-case
+    property : $ => /[a-z]+(-[a-z]+)*/,
+    // Value types can be boolean, string, number, "adjustments", or hex color
+    // `palette` values a handled separately
+    value: $ => choice(
       $.boolean_literal,
       $.string_literal,
       $.number_literal,
@@ -44,14 +49,30 @@ module.exports = grammar({
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
+    hex_color: $ => hex_color,
+    // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
     percent_adjustment: $ => /[+-]?[0-9]+%/,
+    // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
     numeric_adjustment: $ => /[+-]+[0-9]+/,
     string_literal: $ => choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
     ),
-    hex_color: $ => hex_color,
     // Fallback
-    raw_value: $ => anything,
+    raw_value: $ => prec(-1, anything),
+
+
+    // `palette` directive
+    palette_directive: $ => seq(
+      alias("palette", $.palette_property),
+      "=",
+      optional($.palette_value),
+      newline,
+    ),
+    palette_value: $ => seq(
+      alias(/[0-9]{1,3}/, $.palette_index),
+      token.immediate("="),
+      alias(token.immediate(hex_color), $.hex_color),
+    ),
   },
 });
