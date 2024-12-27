@@ -62,8 +62,8 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "="
+          "type": "SYMBOL",
+          "name": "equal_sign"
         },
         {
           "type": "CHOICE",
@@ -87,6 +87,10 @@
         }
       ]
     },
+    "equal_sign": {
+      "type": "PATTERN",
+      "value": "[ \\t]*=[ \\t]*"
+    },
     "config_name": {
       "type": "PATTERN",
       "value": "[a-z]+(-[a-z]+)*"
@@ -96,7 +100,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "boolean"
+          "name": "boolean_literal"
         },
         {
           "type": "SYMBOL",
@@ -104,11 +108,19 @@
         },
         {
           "type": "SYMBOL",
+          "name": "number_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "adjustment"
+        },
+        {
+          "type": "SYMBOL",
           "name": "raw_value"
         }
       ]
     },
-    "boolean": {
+    "boolean_literal": {
       "type": "CHOICE",
       "members": [
         {
@@ -120,6 +132,35 @@
           "value": "false"
         }
       ]
+    },
+    "number_literal": {
+      "type": "PATTERN",
+      "value": "[0-9]+(\\.[0-9]+)?"
+    },
+    "adjustment": {
+      "type": "PREC_DYNAMIC",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "percent_adjustment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "numeric_adjustment"
+          }
+        ]
+      }
+    },
+    "percent_adjustment": {
+      "type": "PATTERN",
+      "value": "[+-]?[0-9]+%"
+    },
+    "numeric_adjustment": {
+      "type": "PATTERN",
+      "value": "[+-]+[0-9]+"
     },
     "string_literal": {
       "type": "CHOICE",
@@ -161,8 +202,12 @@
       ]
     },
     "raw_value": {
-      "type": "PATTERN",
-      "value": "[^\\r\\n]+"
+      "type": "PREC_DYNAMIC",
+      "value": 10,
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\r\\n]+"
+      }
     }
   },
   "extras": [

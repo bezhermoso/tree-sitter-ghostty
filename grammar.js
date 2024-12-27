@@ -8,6 +8,7 @@
 // @ts-check
 const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
+const number = /[0-9]+(\.[0-9]+)?/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -21,23 +22,36 @@ module.exports = grammar({
     comment: $ => token(seq(token.immediate("#"), alias(/[^\r\n]*/, $.text), newline)),
     directive: $ => seq(
       field("name", $.config_name),
-      "=",
+      $.equal_sign,
       optional(field("value", $.config_value)),
       newline,
     ),
+    equal_sign: $ => /[ \t]*=[ \t]*/,
     // kebab-case
     config_name : $ => /[a-z]+(-[a-z]+)*/,
     config_value: $ => choice(
-      $.boolean,
+      $.boolean_literal,
       $.string_literal,
+      $.number_literal,
+      $.adjustment,
       $.raw_value,
     ),
 
-    boolean: $ => choice("true", "false"),
+    boolean_literal: $ => choice("true", "false"),
+    number_literal: $ => number,
+    adjustment: $ => prec.dynamic(0, choice(
+      $.percent_adjustment,
+      $.numeric_adjustment,
+    )),
+    percent_adjustment: $ => /[+-]?[0-9]+%/,
+    numeric_adjustment: $ => /[+-]+[0-9]+/,
     string_literal: $ => choice(
       seq('"', /[^"]*/, '"'),
-      seq("'", /[^']*/, "'")
+      seq("'", /[^']*/, "'"),
     ),
-    raw_value: $ => anything,
-  }
+    raw_value: $ => prec.dynamic(10, anything),
+  },
+  conficts: $ => [
+    [$.raw_value, $.adjustment],
+  ]
 });
