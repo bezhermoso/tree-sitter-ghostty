@@ -10,7 +10,6 @@ const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
 const hex_color = /#?[0-9a-fA-F]{3,8}/;
-const hex_color_with_octothorpe = /#[0-9a-fA-F]{3,8}/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -20,11 +19,15 @@ module.exports = grammar({
         newline,
         $.comment,
         $.directive,
-        $.palette_directive,
-        // TODO: Key-binding directive
       )),
     comment: $ => token(seq(token.immediate("#"), alias(/[^\r\n]*/, $.text), newline)),
-    directive: $ => seq(
+    directive: $ => choice(
+      $.basic_directive,
+      $.palette_directive,
+      $.config_file_directive,
+        // TODO: Key-binding directive
+    ),
+    basic_directive: $ => seq(
       field("name", $.property),
       "=",
       optional(field("value", $.value)),
@@ -64,9 +67,9 @@ module.exports = grammar({
 
     // `palette` directive
     palette_directive: $ => seq(
-      alias("palette", $.palette_property),
+      alias("palette", $.property),
       "=",
-      optional($.palette_value),
+      optional(alias($.palette_value, $.value)),
       newline,
     ),
     palette_value: $ => seq(
@@ -74,5 +77,15 @@ module.exports = grammar({
       token.immediate("="),
       alias(token.immediate(hex_color), $.hex_color),
     ),
+
+    // `config-file` directive
+    config_file_directive: $ => seq(
+      alias("config-file", $.property),
+      "=",
+      alias($._config_path_value, $.value),
+      newline,
+    ),
+    // Simply wraps the value into a raw_value node
+    _config_path_value: $ => $.raw_value,
   },
 });

@@ -18,10 +18,6 @@
           {
             "type": "SYMBOL",
             "name": "directive"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "palette_directive"
           }
         ]
       }
@@ -55,6 +51,23 @@
       }
     },
     "directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "basic_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "palette_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "config_file_directive"
+        }
+      ]
+    },
+    "basic_directive": {
       "type": "SEQ",
       "members": [
         {
@@ -154,6 +167,10 @@
         }
       ]
     },
+    "hex_color": {
+      "type": "PATTERN",
+      "value": "#?[0-9a-fA-F]{3,8}"
+    },
     "percent_adjustment": {
       "type": "PATTERN",
       "value": "[+-]?[0-9]+%"
@@ -201,6 +218,14 @@
         }
       ]
     },
+    "raw_value": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\r\\n]+"
+      }
+    },
     "palette_directive": {
       "type": "SEQ",
       "members": [
@@ -211,7 +236,7 @@
             "value": "palette"
           },
           "named": true,
-          "value": "palette_property"
+          "value": "property"
         },
         {
           "type": "STRING",
@@ -221,8 +246,13 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "palette_value"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "palette_value"
+              },
+              "named": true,
+              "value": "value"
             },
             {
               "type": "BLANK"
@@ -260,7 +290,7 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "#[0-9a-fA-F]{3,8}"
+              "value": "#?[0-9a-fA-F]{3,8}"
             }
           },
           "named": true,
@@ -268,17 +298,40 @@
         }
       ]
     },
-    "hex_color": {
-      "type": "PATTERN",
-      "value": "#?[0-9a-fA-F]{3,8}"
+    "config_file_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "config-file"
+          },
+          "named": true,
+          "value": "property"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_config_path_value"
+          },
+          "named": true,
+          "value": "value"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
     },
-    "raw_value": {
-      "type": "PREC",
-      "value": -1,
-      "content": {
-        "type": "PATTERN",
-        "value": "[^\\r\\n]+"
-      }
+    "_config_path_value": {
+      "type": "SYMBOL",
+      "name": "raw_value"
     }
   },
   "extras": [

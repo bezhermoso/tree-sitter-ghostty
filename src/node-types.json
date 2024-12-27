@@ -19,12 +19,7 @@
     }
   },
   {
-    "type": "boolean_literal",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "directive",
+    "type": "basic_directive",
     "named": true,
     "fields": {
       "name": {
@@ -50,6 +45,53 @@
     }
   },
   {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "config_file_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "property",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "basic_directive",
+          "named": true
+        },
+        {
+          "type": "config_file_directive",
+          "named": true
+        },
+        {
+          "type": "palette_directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "palette_directive",
     "named": true,
     "fields": {},
@@ -58,30 +100,11 @@
       "required": true,
       "types": [
         {
-          "type": "palette_property",
+          "type": "property",
           "named": true
         },
         {
-          "type": "palette_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "palette_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "hex_color",
-          "named": true
-        },
-        {
-          "type": "palette_index",
+          "type": "value",
           "named": true
         }
       ]
@@ -108,10 +131,6 @@
         {
           "type": "directive",
           "named": true
-        },
-        {
-          "type": "palette_directive",
-          "named": true
         }
       ]
     }
@@ -126,7 +145,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -143,6 +162,10 @@
         },
         {
           "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "palette_index",
           "named": true
         },
         {
@@ -190,10 +213,6 @@
   },
   {
     "type": "palette_index",
-    "named": true
-  },
-  {
-    "type": "palette_property",
     "named": true
   },
   {
