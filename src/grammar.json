@@ -87,10 +87,6 @@
         }
       ]
     },
-    "equal_sign": {
-      "type": "PATTERN",
-      "value": "[ \\t]*=[ \\t]*"
-    },
     "config_name": {
       "type": "PATTERN",
       "value": "[a-z]+(-[a-z]+)*"

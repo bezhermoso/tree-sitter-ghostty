@@ -27,7 +27,6 @@ module.exports = grammar({
       optional(field("value", $.config_value)),
       newline,
     ),
-    equal_sign: $ => /[ \t]*=[ \t]*/,
     // kebab-case
     config_name : $ => /[a-z]+(-[a-z]+)*/,
     config_value: $ => choice(
