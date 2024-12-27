@@ -19,19 +19,16 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
 
 ```lua
 
-local parsers = require('nvim-treesitter.parsers')
-
+local parsers_config = require('nvim-treesitter.parsers').get_parser_configs()
 -- Register this parser manually to nvim-treesitter's parser directory
-parsers.ghostty = {
+parsers_config.ghostty = {
     install_info = {
         url = 'https://github.com/bezhermoso/tree-sitter-ghostty',
         files = { 'src/parser.c' },
+        branch = 'main',
         requires_generate_from_grammar = true,
     },
 }
-
--- Associate this parser to the `ghostty` file-type
-vim.treesitter.language.register('ghostty', { 'ghostty' })
 ```
 
 2. Re-open Neovim & run `:TSInstall ghostty`. Follow prompts.
