@@ -1,12 +1,9 @@
 ; extends
-
 ; Comments
 (comment) @comment
 
 ; Keys
-[ (property)
- (palette_property)
-] @property
+(property) @property
 
 ; Values
 (boolean_literal) @boolean
@@ -17,18 +14,15 @@
 ] @number
 
 [
-    (string_literal)
-    (raw_value)
-    (palette_value)
+ (value)
+ (raw_value)
+ (string_literal)
 ] @string
 
 [
     (hex_color)
-    (palette_index)
 ] @markup.bold
 
-[
- (palette_index)
- (palette_value (hex_color))
-] @markup.italic
+(palette_value [(hex_color) (palette_index)] @markup.italic @markup.bold)
 
+(config_file_directive (raw_value) @string.special.path)
