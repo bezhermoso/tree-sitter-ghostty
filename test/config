@@ -40,7 +40,7 @@ palette = 14=#89b482
 palette = 15=#fbf1c7
 background = 202020
 foreground = ddc7a1
-cursor-color = ddc7a1 
+cursor-color = ddc7a1
 selection-background = 504945
 selection-foreground = ddc7a1
 

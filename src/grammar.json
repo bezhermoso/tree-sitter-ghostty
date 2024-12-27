@@ -72,7 +72,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "property",
           "content": {
             "type": "SYMBOL",
             "name": "property"
@@ -230,13 +230,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "property",
           "content": {
-            "type": "STRING",
-            "value": "palette"
-          },
-          "named": true,
-          "value": "property"
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "palette"
+            },
+            "named": true,
+            "value": "property"
+          }
         },
         {
           "type": "STRING",
@@ -246,13 +250,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "value",
               "content": {
                 "type": "SYMBOL",
                 "name": "palette_value"
-              },
-              "named": true,
-              "value": "value"
+              }
             },
             {
               "type": "BLANK"
@@ -302,26 +305,29 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "property",
           "content": {
-            "type": "STRING",
-            "value": "config-file"
-          },
-          "named": true,
-          "value": "property"
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "config-file"
+            },
+            "named": true,
+            "value": "property"
+          }
         },
         {
           "type": "STRING",
           "value": "="
         },
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "value",
           "content": {
             "type": "SYMBOL",
-            "name": "_config_path_value"
-          },
-          "named": true,
-          "value": "value"
+            "name": "raw_value"
+          }
         },
         {
           "type": "PATTERN",
@@ -329,9 +335,9 @@
         }
       ]
     },
-    "_config_path_value": {
-      "type": "SYMBOL",
-      "name": "raw_value"
+    "path_value": {
+      "type": "PATTERN",
+      "value": "[^\\r\\n]+"
     }
   },
   "extras": [

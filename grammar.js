@@ -20,7 +20,12 @@ module.exports = grammar({
         $.comment,
         $.directive,
       )),
-    comment: $ => token(seq(token.immediate("#"), alias(/[^\r\n]*/, $.text), newline)),
+    comment: $ => token(
+      seq(
+        token.immediate("#"),
+        alias(/[^\r\n]*/, $.text),
+        newline
+      )),
     directive: $ => choice(
       $.basic_directive,
       $.palette_directive,
@@ -28,7 +33,7 @@ module.exports = grammar({
         // TODO: Key-binding directive
     ),
     basic_directive: $ => seq(
-      field("name", $.property),
+      field("property", $.property),
       "=",
       optional(field("value", $.value)),
       newline,
@@ -67,9 +72,11 @@ module.exports = grammar({
 
     // `palette` directive
     palette_directive: $ => seq(
-      alias("palette", $.property),
+      field("property", alias("palette", $.property)),
       "=",
-      optional(alias($.palette_value, $.value)),
+      optional(
+        field("value", $.palette_value),
+      ),
       newline,
     ),
     palette_value: $ => seq(
@@ -80,12 +87,11 @@ module.exports = grammar({
 
     // `config-file` directive
     config_file_directive: $ => seq(
-      alias("config-file", $.property),
+      field("property", alias("config-file", $.property)),
       "=",
-      alias($._config_path_value, $.value),
+      field("value", $.raw_value),
       newline,
     ),
-    // Simply wraps the value into a raw_value node
-    _config_path_value: $ => $.raw_value,
+    path_value: $ => anything,
   },
 });

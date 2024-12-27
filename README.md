@@ -33,7 +33,7 @@ parsers_config.ghostty = {
 
 2. Re-open Neovim & run `:TSInstall ghostty`. Follow prompts.
 
-3. Copy `./queries/highlights.scm` to `~/.config/nvim/queries/ghostty/highlights.scm`
+3. Copy `./queries/highlights.scm` to `~/.config/nvim/after/queries/ghostty/highlights.scm`
 
 4. Open your Ghostty config and set its file-type to `ghostty`:
 
