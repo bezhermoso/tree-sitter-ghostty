@@ -15,6 +15,11 @@ window-width = 80
 window-height = 26
 window-padding-x = 5
 window-padding-y = 1
+padding = 10%
+# padding = -10%
+# padding = +10%
+padding = 10
+padding = +10
 window-colorspace = display-p3
 macos-titlebar-style = native
 
