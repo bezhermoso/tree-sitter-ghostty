@@ -8,6 +8,26 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
 <img width="416" alt="SCR-20241227-cwql" src="https://github.com/user-attachments/assets/143dd0f9-c28d-4bfe-a084-db6bf4ac5dc9" />
 
 
+## TODOs
+
+- [x] Comments
+- Directives
+    - [x] Raw values
+    - [x] Numbers
+    - [x] Percents
+    - [x] Colors 
+    - [x] Palette
+    - [ ] Keybindings (IN PROGRESS)
+        - [x] Chords
+        - [x] Modifiers
+        - [x] Actions & arguments
+        - [ ] Special keys (e.g. `tab`, `space`, `up`)
+- [x] Tests
+- [ ] Neovim highlight groups (IN PROGRESS)
+- [ ] Stable release
+    - [ ] Contribute queries to [nvim-treesitter] (No longer accepting experimental parsers)
+
+
 ## How to use
 
 ### Neovim
@@ -48,11 +68,6 @@ You can also add this line to the top of your Ghostty config:
  #
  # The rest of your Ghostty configuration 👻...
 ```
-
-# TODOs
-
-- [ ] Tests
-- [ ] Contribute queries to [nvim-treesitter]
 
 [Ghostty]: https://ghostty.org
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
