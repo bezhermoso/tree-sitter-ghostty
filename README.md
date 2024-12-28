@@ -69,5 +69,25 @@ You can also add this line to the top of your Ghostty config:
  # The rest of your Ghostty configuration 👻...
 ```
 
+### Helix
+
+1. Add this to your `languages.toml`
+
+```toml
+[[language]]
+name = "ghostty"
+scope = "source.ghostty"
+injection-regex = "ghostty"
+file-types = [{ glob = "*ghostty/config" }]
+grammar = "ghostty"
+comment-tokens = "#"
+
+[[grammar]]
+name = "ghostty"
+source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty", rev = "main" }
+```
+
+2. In your `runtime` directory, symlink `queries/ghostty/highlights.scm` to `grammars/sources/ghostty/queries/highlights.scm`
+
 [Ghostty]: https://ghostty.org
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
