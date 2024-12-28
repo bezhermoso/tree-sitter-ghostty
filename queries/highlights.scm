@@ -20,9 +20,9 @@
 ] @string
 
 [
-    (hex_color)
+    (color_value)
 ] @markup.bold
 
-(palette_value [(hex_color) (palette_index)] @markup.italic @markup.bold)
+(palette_value [(color_value) (palette_index)] @markup.italic @markup.bold)
 
 (config_file_directive (raw_value) @string.special.path)
