@@ -297,7 +297,7 @@
       "required": true,
       "types": [
         {
-          "type": "hex_color",
+          "type": "color_value",
           "named": true
         },
         {
@@ -354,7 +354,7 @@
           "named": true
         },
         {
-          "type": "hex_color",
+          "type": "color_value",
           "named": true
         },
         {
@@ -413,6 +413,10 @@
     "named": false
   },
   {
+    "type": "color_value",
+    "named": true
+  },
+  {
     "type": "command",
     "named": false
   },
@@ -435,10 +439,6 @@
   {
     "type": "global",
     "named": false
-  },
-  {
-    "type": "hex_color",
-    "named": true
   },
   {
     "type": "key",

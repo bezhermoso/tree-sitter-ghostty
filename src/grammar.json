@@ -133,7 +133,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "hex_color"
+          "name": "color_value"
         },
         {
           "type": "SYMBOL",
@@ -171,17 +171,17 @@
         }
       ]
     },
-    "hex_color": {
+    "color_value": {
       "type": "PATTERN",
-      "value": "#?[0-9a-fA-F]{3,8}"
+      "value": "#?[0-9a-fA-F]{6}"
     },
     "percent_adjustment": {
       "type": "PATTERN",
-      "value": "[+-]?[0-9]+%"
+      "value": "[+-]?[0-9]+(\\.[0-9]+)?%"
     },
     "numeric_adjustment": {
       "type": "PATTERN",
-      "value": "[+-]+[0-9]+"
+      "value": "[+-][0-9]+(\\.[0-9]+)?"
     },
     "string_literal": {
       "type": "CHOICE",
@@ -297,11 +297,11 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "#?[0-9a-fA-F]{3,8}"
+              "value": "#?[0-9a-fA-F]{6}"
             }
           },
           "named": true,
-          "value": "hex_color"
+          "value": "color_value"
         }
       ]
     },

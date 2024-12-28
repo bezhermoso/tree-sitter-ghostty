@@ -9,7 +9,9 @@
 const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
-const hex_color = /#?[0-9a-fA-F]{3,8}/;
+const percent_assignment = /[+-]?[0-9]+(\.[0-9]+)?%/;
+const numemeric_assignment = /[+-][0-9]+(\.[0-9]+)?/;
+const hex_color = /#?[0-9a-fA-F]{6}/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -31,7 +33,6 @@ module.exports = grammar({
       $.palette_directive,
       $.config_file_directive,
       $.keybind_directive,
-        // TODO: Key-binding directive
     ),
     basic_directive: $ => seq(
       field("property", $.property),
@@ -45,10 +46,9 @@ module.exports = grammar({
     // `palette` values a handled separately
     value: $ => choice(
       $.boolean_literal,
-      $.string_literal,
       $.number_literal,
       $.adjustment,
-      $.hex_color,
+      $.color_value,
       $.raw_value,
     ),
 
@@ -58,17 +58,16 @@ module.exports = grammar({
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
-    hex_color: $ => hex_color,
+    color_value: $ => hex_color,
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    percent_adjustment: $ => /[+-]?[0-9]+%/,
+    percent_adjustment: $ => percent_assignment,
+    //percent_adjustment: $ => seq(number, token.immediate("%")),
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    numeric_adjustment: $ => /[+-]+[0-9]+/,
-    string_literal: $ => choice(
-      seq('"', /[^"]*/, '"'),
-      seq("'", /[^']*/, "'"),
-    ),
+    numeric_adjustment: $ => numemeric_assignment,
+    //numeric_adjustment: $ => seq(/[+-]/, token.immediate(number)),
+    //
     // Fallback
-    raw_value: $ => prec(-1, anything),
+    raw_value: $ => anything,
 
 
     // `palette` directive
@@ -83,7 +82,7 @@ module.exports = grammar({
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
       token.immediate("="),
-      alias(token.immediate(hex_color), $.hex_color),
+      alias(token.immediate(hex_color), $.color_value),
     ),
 
     // `config-file` directive
