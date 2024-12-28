@@ -1,0 +1,206 @@
+===========================
+Basic Directive - Raw Value
+===========================
+
+font = Berkeley Mono
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value)))))
+
+================================
+Basic Directive - Quoted Strings
+================================
+
+font = "Berkeley Mono"
+font = 'Berkeley Mono'
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value)))))
+
+=========================
+Basic Directive - Numbers
+=========================
+
+font-size = 10
+font-size = 10.5
+font-size = 0.5
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (number_literal))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (number_literal))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (number_literal)))))
+
+=========================================
+Basic Directive - Bare Percent Adjustment
+=========================================
+
+window-padding = 10%
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (adjustment 
+     (percent_adjustment))))))
+
+===========================================
+Basic Directive - Signed Percent Adjustment
+===========================================
+
+window-padding = -10%
+window-padding = +10%
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (adjustment 
+     (percent_adjustment)))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (adjustment 
+     (percent_adjustment))))))
+
+====================================
+Basic Directive - Numeric Adjustment
+====================================
+
+window-padding = -10
+window-padding = +10
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (adjustment 
+     (numeric_adjustment)))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (adjustment 
+     (numeric_adjustment))))))
+
+=================================
+Basic Directive - Not Adjustments
+=================================
+
+window-padding = - 10
+window-padding = + 10
+window-padding = 10 %
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value)))))
+
+============================
+Basic Directive - Hex Colors
+============================
+
+background = #f0f0f0
+foreground = #000000
+macos-icon-ghost-color = f0f0f0
+macos-icon-screen-color = ff0000
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (color_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (color_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (color_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (color_value)))))
+
+
+==========================
+Basic Directive - Not Colors
+==========================
+
+short-hand = b32
+short-hand = #737
+
+---
+
+(source_file 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value))))
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (raw_value)))))

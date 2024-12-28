@@ -1,0 +1,36 @@
+==================
+Palette Directives
+==================
+
+palette = 0=#ffffff
+palette = 1=#000000
+palette = 0=ffffff
+palette = 1=000000
+
+---
+
+(source_file 
+ (directive 
+  (palette_directive
+   (property)
+   (palette_value
+    (palette_index)
+    (color_value))))
+ (directive 
+  (palette_directive
+   (property)
+   (palette_value
+    (palette_index)
+    (color_value))))
+ (directive 
+  (palette_directive
+   (property)
+   (palette_value
+    (palette_index)
+    (color_value))))
+ (directive 
+  (palette_directive
+   (property)
+   (palette_value
+    (palette_index)
+    (color_value)))))

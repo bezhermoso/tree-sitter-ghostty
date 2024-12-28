@@ -1,0 +1,259 @@
+==================================
+Keybind Directive - Single Trigger
+==================================
+
+keybind = ctrl+shift+a=toggle
+keybind = ctrl+j=toggle
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
+WIP: Keybind Directive - Special Keys
+=====================================
+
+keybind = ctrl+up=toggle
+keybind = ctrl+down=toggle
+keybind = ctrl+left=toggle
+keybind = ctrl+right=toggle
+keybind = ctrl+plus=toggle
+keybind = ctrl+minus=toggle
+keybind = ctrl+f1=toggle
+keybind = ctrl+f2=toggle
+keybind = ctrl+f3=toggle
+keybind = ctrl+f4=toggle
+keybind = ctrl+f5=toggle
+keybind = ctrl+f6=toggle
+keybind = ctrl+f7=toggle
+keybind = ctrl+f8=toggle
+keybind = ctrl+f9=toggle
+keybind = ctrl+f10=toggle
+keybind = ctrl+f11=toggle
+keybind = ctrl+f12=toggle
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
+Keybind Directive - Multiple Triggers
+=====================================
+
+keybind = ctrl+shift+a>a=toggle
+keybind = ctrl+j>ctrl+j=toggle
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key))
+     (chord
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key))
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
+Keybind Directive - Keybind Modifiers
+=====================================
+
+keybind = all:ctrl+shift+a=toggle
+keybind = global:ctrl+shift+a=toggle
+keybind = local:ctrl+shift+a=toggle
+keybind = unconsumed:ctrl+shift+a=toggle
+keybind = global:unconsumed:ctrl+shift+a=toggle
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_modifier)
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_modifier)
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_modifier)
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_modifier)
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_modifier)
+    (keybind_modifier)
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
+Keybind Directive - Action Parameters
+=====================================
+
+keybind = ctrl+shift+a=foo:BAR
+keybind = ctrl+shift+a=foo:bar baz
+keybind = ctrl+shift+a=foobar:"A B"
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument))))))
+

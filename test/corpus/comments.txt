@@ -1,0 +1,26 @@
+========
+Comments
+========
+
+# This is a comment
+
+---
+
+(source_file
+ (comment))
+
+========
+Multiple Comments
+========
+
+# This is a comment
+# This is another comment
+
+# This is third comment
+
+---
+
+(source_file
+ (comment)
+ (comment)
+ (comment))

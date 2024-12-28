@@ -1,0 +1,46 @@
+============================
+Config File Directive - File
+============================
+
+config-file = ~/.config/ghostty/config.d/theme
+
+---
+
+(source_file
+ (directive
+  (config_file_directive
+   (property)
+   (raw_value))))
+
+==============================
+Config File Directive - Quoted
+==============================
+
+config-file = "~/.config/ghostty/config.d/theme"
+config-file = '~/.config/ghostty/config.d/theme'
+
+---
+
+(source_file
+ (directive
+  (config_file_directive
+   (property)
+   (raw_value)))
+ (directive
+  (config_file_directive
+   (property)
+   (raw_value))))
+
+===================================
+Config File Directive - With Spaces
+===================================
+
+config-file = ~/.config/ghostty/config.d/my theme
+
+---
+
+(source_file
+ (directive
+  (config_file_directive
+   (property)
+   (raw_value))))
