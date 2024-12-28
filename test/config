@@ -48,3 +48,8 @@ macos-icon-ghost-color = ddc7a1
 macos-icon-screen-color = 202020
 
 config-file = ~/.config/ghostty/theme
+
+# keybind = cmd+shift+a=toggle
+keybind = all:global:cmd+c=hello:A B
+#keybind = cmd+shift+opt+p=hello_world:loudly
+# keybind = unconsumed:cmd+shift+opt+p=hello

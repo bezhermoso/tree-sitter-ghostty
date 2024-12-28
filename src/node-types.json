@@ -1,5 +1,10 @@
 [
   {
+    "type": "action_argument",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "adjustment",
     "named": true,
     "fields": {},
@@ -50,6 +55,25 @@
     "fields": {}
   },
   {
+    "type": "chord",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "key_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "config_file_directive",
     "named": true,
     "fields": {
@@ -92,7 +116,147 @@
           "named": true
         },
         {
+          "type": "keybind_directive",
+          "named": true
+        },
+        {
           "type": "palette_directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "key_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "keybind_action",
+    "named": true,
+    "fields": {
+      "action_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "action_name",
+            "named": true
+          }
+        ]
+      },
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "action_argument",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "keybind_directive",
+    "named": true,
+    "fields": {
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "keybind_modifier",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "all",
+            "named": false
+          },
+          {
+            "type": "global",
+            "named": false
+          },
+          {
+            "type": "local",
+            "named": false
+          },
+          {
+            "type": "unconsumed",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "keybind_trigger",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "chord",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keybind_value",
+    "named": true,
+    "fields": {
+      "action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_action",
+            "named": true
+          }
+        ]
+      },
+      "trigger": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_trigger",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keybind_modifier",
           "named": true
         }
       ]
@@ -217,7 +381,39 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "action_name",
+    "named": true
+  },
+  {
+    "type": "all",
+    "named": false
+  },
+  {
+    "type": "alt",
+    "named": false
+  },
+  {
+    "type": "cmd",
+    "named": false
+  },
+  {
+    "type": "command",
     "named": false
   },
   {
@@ -225,12 +421,32 @@
     "named": true
   },
   {
+    "type": "control",
+    "named": false
+  },
+  {
+    "type": "ctrl",
+    "named": false
+  },
+  {
     "type": "false",
+    "named": false
+  },
+  {
+    "type": "global",
     "named": false
   },
   {
     "type": "hex_color",
     "named": true
+  },
+  {
+    "type": "key",
+    "named": true
+  },
+  {
+    "type": "local",
+    "named": false
   },
   {
     "type": "number_literal",
@@ -239,6 +455,14 @@
   {
     "type": "numeric_adjustment",
     "named": true
+  },
+  {
+    "type": "opt",
+    "named": false
+  },
+  {
+    "type": "option",
+    "named": false
   },
   {
     "type": "palette_index",
@@ -253,7 +477,19 @@
     "named": true
   },
   {
+    "type": "shift",
+    "named": false
+  },
+  {
+    "type": "super",
+    "named": false
+  },
+  {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "unconsumed",
     "named": false
   }
 ]

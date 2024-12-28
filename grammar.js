@@ -30,6 +30,7 @@ module.exports = grammar({
       $.basic_directive,
       $.palette_directive,
       $.config_file_directive,
+      $.keybind_directive,
         // TODO: Key-binding directive
     ),
     basic_directive: $ => seq(
@@ -93,5 +94,66 @@ module.exports = grammar({
       newline,
     ),
     path_value: $ => anything,
+
+    // `keybind` directive
+    keybind_directive: $ => seq(
+      field("property", alias("keybind", $.property)),
+      "=",
+      field("value", $._keybind_value),
+      newline,
+    ),
+    // TODO: Handle quoted values
+    _keybind_value: $ => $.keybind_value,
+
+    // The overall syntax for keybind values
+    keybind_value: $ => seq(
+      optional(repeat($.keybind_modifier)),
+      field("trigger", $.keybind_trigger),
+      token.immediate("="),
+      field("action", $.keybind_action),
+    ),
+
+    // Modifier for the entire keybind
+    keybind_modifier: $ => seq(
+      field("modifier",
+        choice(
+          "all", "global", "local", "unconsumed",
+        ),
+      ),
+      token.immediate(":"),
+    ),
+
+    // The keybind themselves. Ghostty supports stringing chords together.
+    keybind_trigger: $ => sep1($.chord, ">"),
+
+    // A cluster of keys that must be pressed together.
+    chord: $ => sep1(choice($.key_modifier, $.key), "+"),
+
+    // Modifier keys
+    key_modifier: $ => choice(
+      "shift",
+      "ctrl", "control",
+      "alt", "option", "opt",
+      "super", "cmd", "command",
+    ),
+
+    // Non-modifier keys
+    key: $ => /[^>=:]{1}/,
+
+    // The action to be taken when the keybind is triggered
+    keybind_action: $ => seq(
+      field("action_name", alias(/[a-z\_]+/, $.action_name)),
+      optional(
+        seq(
+          token.immediate(":"),
+          field("argument", alias($.raw_value, $.action_argument)),
+        ),
+      ),
+    ),
   },
 });
+
+function sep1(rule, separator) {
+  return seq(rule, repeat(seq(separator, rule)));
+}
+
