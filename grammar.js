@@ -34,14 +34,17 @@ module.exports = grammar({
       $.config_file_directive,
       $.keybind_directive,
     ),
+
     basic_directive: $ => seq(
       field("property", $.property),
       "=",
       optional(field("value", $.value)),
       newline,
     ),
-    // Property names are kebab-case
-    property : $ => /[a-z]+(-[a-z]+)*/,
+
+    _kebab_case_identifier : $ => /[a-z]+(-[a-z]+)*/,
+    _snake_case_identifier : $ => /[a-z\_]+\d*/,
+    property : $ => choice($._kebab_case_identifier),
     // Value types can be boolean, string, number, "adjustments", or hex color
     // `palette` values a handled separately
     value: $ => choice(
@@ -49,6 +52,7 @@ module.exports = grammar({
       $.number_literal,
       $.adjustment,
       $.color_value,
+      $.string_literal,
       $.raw_value,
     ),
 
@@ -58,7 +62,11 @@ module.exports = grammar({
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
-    color_value: $ => hex_color,
+    string_literal: $ => choice(
+      seq('"', /[^"]*/, '"'),
+      seq("'", /[^']*/, "'"),
+    ),
+    color_value: $ => token(prec(1,hex_color)),
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
     percent_adjustment: $ => percent_assignment,
     //percent_adjustment: $ => seq(number, token.immediate("%")),
@@ -89,7 +97,7 @@ module.exports = grammar({
     config_file_directive: $ => seq(
       field("property", alias("config-file", $.property)),
       "=",
-      field("value", $.raw_value),
+      field("value", $.path_value),
       newline,
     ),
     path_value: $ => anything,
@@ -101,8 +109,7 @@ module.exports = grammar({
       field("value", $._keybind_value),
       newline,
     ),
-    // TODO: Handle quoted values
-    _keybind_value: $ => $.keybind_value,
+    _keybind_value: $ => choice($.keybind_value, alias("clear", $.value), alias($.string_literal, $.value)),
 
     // The overall syntax for keybind values
     keybind_value: $ => seq(
@@ -122,6 +129,9 @@ module.exports = grammar({
       token.immediate(":"),
     ),
 
+    // Prefix for a single key
+    key_prefix: $ => "physical",
+
     // The keybind themselves. Ghostty supports stringing chords together.
     keybind_trigger: $ => sep1($.chord, ">"),
 
@@ -137,11 +147,19 @@ module.exports = grammar({
     ),
 
     // Non-modifier keys
-    key: $ => /[^>=:]{1}/,
+    key: $ => seq(
+      optional(
+        seq(
+          $.key_prefix,
+          token.immediate(":"),
+        )
+      ),
+      field("bind", $._snake_case_identifier),
+    ),
 
     // The action to be taken when the keybind is triggered
     keybind_action: $ => seq(
-      field("action_name", alias(/[a-z\_]+/, $.action_name)),
+      field("action_name", alias($._snake_case_identifier, $.action_name)),
       optional(
         seq(
           token.immediate(":"),

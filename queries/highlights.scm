@@ -25,4 +25,4 @@
 
 (palette_value [(color_value) (palette_index)] @markup.italic @markup.bold)
 
-(config_file_directive (raw_value) @string.special.path)
+(config_file_directive (path_value) @string.special.path)
