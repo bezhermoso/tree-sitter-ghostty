@@ -109,7 +109,7 @@ module.exports = grammar({
       field("value", $._keybind_value),
       newline,
     ),
-    _keybind_value: $ => choice($.keybind_value, alias("clear", $.value), alias($.string_literal, $.value)),
+    _keybind_value: $ => choice($.keybind_value, alias("clear", $.keybind_clear_keyword), alias($.string_literal, $.value)),
 
     // The overall syntax for keybind values
     keybind_value: $ => seq(
