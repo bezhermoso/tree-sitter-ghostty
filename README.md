@@ -1,5 +1,7 @@
 # tree-sitter-ghostty
 
+[![Tests](https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml/badge.svg)](https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml)
+
 > [!WARNING]
 > This is still **experimental**
 
