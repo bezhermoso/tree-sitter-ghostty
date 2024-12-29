@@ -15,22 +15,22 @@ palette = 1=000000
    (property)
    (palette_value
     (palette_index)
-    (color_value))))
+    (color))))
  (directive 
   (palette_directive
    (property)
    (palette_value
     (palette_index)
-    (color_value))))
+    (color))))
  (directive 
   (palette_directive
    (property)
    (palette_value
     (palette_index)
-    (color_value))))
+    (color))))
  (directive 
   (palette_directive
    (property)
    (palette_value
     (palette_index)
-    (color_value)))))
+    (color)))))

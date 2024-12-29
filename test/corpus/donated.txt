@@ -1,0 +1,147 @@
+======
+https://github.com/thomasschafer/dotfiles/blob/c77efbcde09d87117447d8250d45a57e5dd96435/ghostty/config.template#L23
+======
+
+keybind = alt+3=text:#
+keybind = cmd+r=reload_config
+keybind = cmd+alt+left=text:\x1b[1;5D
+keybind = cmd+alt+right=text:\x1b[1;5C
+keybind = cmd+shift+left=text:\x1b[1;6D
+keybind = cmd+shift+right=text:\x1b[1;6C
+keybind = cmd+shift+up=text:\x01K
+keybind = cmd+shift+down=text:\x01k
+keybind = cmd+t=text:\x01c
+keybind = cmd+d=text:\x01|
+keybind = cmd+shift+d=text:\x01-
+keybind = cmd+w=text:\x01x
+keybind = cmd+l=text:\x01;
+keybind = cmd+comma=text:\x01L
+keybind = cmd+shift+enter=text:\x01z
+keybind = cmd+s=text:\x01s
+keybind = cmd+p=text:\x01F
+keybind = alt+right=text:\x1bF
+keybind = alt+left=text:\x1bB
+
+---
+
+(document)
+
+===
+https://github.com/towry/dots/blob/2c2ba35526aec0ce3d0f318c2a43a07a890ac1a9/conf/ghostty/config-default-keybind
+===
+
+keybind = super+n=new_window
+keybind = super+t=new_tab
+keybind = super+w=close_surface
+keybind = super+shift+w=close_window
+keybind = super+slash=new_split:right
+keybind = super+minus=new_split:down
+keybind = super+left_bracket=previous_tab
+keybind = super+right_bracket=next_tab
+keybind = super+comma=last_tab
+keybind = alt+left_bracket=move_tab:-1
+keybind = alt+right_bracket=move_tab:1
+## goto_tab:1 and 2,3,4,5,6,7,8,9
+keybind = super+one=goto_tab:1
+keybind = super+two=goto_tab:2
+keybind = super+three=goto_tab:3
+keybind = super+four=goto_tab:4
+keybind = super+five=goto_tab:5
+keybind = super+six=goto_tab:6
+keybind = super+seven=goto_tab:7
+keybind = super+eight=goto_tab:8
+keybind = super+nine=goto_tab:9
+
+# # navigate with alt+hjkl
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:top
+keybind = alt+j=goto_split:bottom
+# # resize with super+shift+hjkl
+keybind = alt+shift+h=resize_split:left,60
+keybind = alt+shift+l=resize_split:right,60
+keybind = alt+shift+k=resize_split:up,60
+keybind = alt+shift+j=resize_split:down,60
+keybind = alt+shift+equal=equalize_splits
+# # toggle zoom on split
+keybind = super+0=toggle_split_zoom
+# select all
+keybind = super+a=select_all
+# clear screen
+keybind = ctrl+l=clear_screen
+# scroll to top
+keybind = ctrl+a>y=scroll_to_top
+# # scroll to bottom
+keybind = ctrl+a>e=scroll_to_bottom
+# scroll_page_up and scroll_page_down
+keybind = super+d=scroll_page_down
+keybind = super+u=scroll_page_up
+# jump_to_prompt=-1, jump_to_prompt=1
+
+---
+
+(document)
+
+===
+https://github.com/rockyzhang24/dotfiles/blob/dbc98a8debb05398fb990886ca6de7d9ccb5f104/.config/ghostty/config#L15
+===
+
+font-family = ""
+font-family = "JetBrains Mono"
+font-size = 14
+
+# Disable ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+theme = arctic
+
+macos-option-as-alt = left
+
+#
+# Keybindings
+#
+# ctrl+shift+key for those keybindings that needs to be pressed repeatedly
+# ctrl+; as the leader key for other keybindings
+#
+
+keybind = cmd+ctrl+,=reload_config
+keybind = ctrl+;>s=write_screen_file:paste
+keybind = ctrl+;>i=inspector:toggle
+keybind = global:opt+grave_accent=toggle_quick_terminal
+
+# Scroll
+keybind = ctrl+shift+d=scroll_page_fractional:0.5
+keybind = ctrl+shift+u=scroll_page_fractional:-0.5
+keybind = ctrl+shift+nine=scroll_to_top
+keybind = ctrl+shift+zero=scroll_to_bottom
+keybind = ctrl+shift+z=jump_to_prompt:-1
+keybind = ctrl+shift+x=jump_to_prompt:1
+
+# Tab
+keybind = ctrl+shift+[=previous_tab
+keybind = ctrl+shift+]=next_tab
+keybind = ctrl+shift+,=move_tab:-1
+keybind = ctrl+shift+.=move_tab:1
+
+# Split
+keybind = ctrl+;>\=new_split:right
+keybind = ctrl+;>-=new_split:down
+keybind = ctrl+shift+enter=new_split:auto
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:bottom
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+;>m=toggle_split_zoom
+keybind = ctrl+shift+up=resize_split:up,10
+keybind = ctrl+shift+down=resize_split:down,10
+keybind = ctrl+shift+left=resize_split:left,10
+keybind = ctrl+shift+right=resize_split:right,10
+
+# Make <C-/> work in Neovim
+keybind = ctrl+/=text:\x1f
+
+---
+
+(document)
