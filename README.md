@@ -38,9 +38,9 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
 > Requires [nvim-treesitter]. 
 
 > [!CAUTION]
-> The hifhlight capture groups may break as the grammar changes underneath it. 
+> The highlight capture groups may break as the grammar changes underneath it. 
 > For best results, **symink** it to the destination. When syntax highlighting breaks,
-> run `:TSInstall! ghostty` should fix the problem. 
+> running `:TSInstall! ghostty` should fix the problem. 
 >
 > This should stop being an annoyance when we have a stable release. 
 
