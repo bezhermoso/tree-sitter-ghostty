@@ -56,46 +56,186 @@ keybind = ctrl+f12=toggle
 ---
 
 (source_file
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (key_modifier)
-      (key)))
-    (keybind_action
-     (action_name)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (key_modifier)
-      (key)))
-    (keybind_action
-     (action_name)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (key_modifier)
-      (key)))
-    (keybind_action
-     (action_name)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (key_modifier)
-      (key)))
-    (keybind_action
-     (action_name))))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name)))))
+      (directive
+        (keybind_directive
+          (property)
+          (keybind_value
+            (keybind_trigger
+              (chord
+                (key_modifier)
+                (key)))
+            (keybind_action
+              (action_name))))))
 
 =====================================
 Keybind Directive - Multiple Triggers
@@ -257,3 +397,65 @@ keybind = ctrl+shift+a=foobar:"A B"
      (action_name)
      (action_argument))))))
 
+
+=====================================
+Keybind Directive - Key Prefix
+=====================================
+
+keybind = ctrl+shift+physical:a=foo:BAR
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key_modifier)
+      (key 
+       (key_prefix))))
+    (keybind_action
+     (action_name)
+     (action_argument))))))
+
+=====================================
+Keybind Directive - Special Characters
+=====================================
+
+keybind = ctrl+ö=action
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
+Keybind Directive - Clear Keybinds
+=====================================
+
+keybind = clear
+keybind = "clear"
+
+---
+
+(source_file
+      (directive
+        (keybind_directive
+          (property)
+          (value)))
+      (directive
+        (keybind_directive
+          (property)
+          (value))))
