@@ -16,9 +16,9 @@
     </div>
 </div>
 
-<img width="973" alt="SCR-20241229-lkzj" src="https://github.com/user-attachments/assets/03a52e60-038e-4a4d-9726-9c57643e996d" />
-
-<img width="973" alt="SCR-20241229-llbi" src="https://github.com/user-attachments/assets/78eb32e8-c94c-495b-b73d-ee200b4c5187" />
+<img width="973" alt="SCR-20241229-moju" src="https://github.com/user-attachments/assets/1de7cced-b798-4b6c-a847-6936c76d8188" />
+<hr>
+<img width="973" alt="SCR-20241229-mogq" src="https://github.com/user-attachments/assets/f6a78843-3ef0-479e-b4dc-2268a2b61ce9" />
 
 
 
