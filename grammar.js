@@ -52,7 +52,6 @@ module.exports = grammar({
         $.adjustment,
         $.color,
         $.string,
-        //$.raw_value,
       )
     ),
 
@@ -70,8 +69,7 @@ module.exports = grammar({
         $._raw_value,
       )
     )),
-    color: $ => 
-      prec(2, hex_color_seq()),
+    color: $ => prec(2, hex_color_seq()),
     percent_adjustment: $ => token(
       prec(
         2,
@@ -108,7 +106,7 @@ module.exports = grammar({
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
       token.immediate("="),
-      alias(token.immediate(hex_color_seq()), $.color),
+      $.color
     ),
 
     // `config-file` directive

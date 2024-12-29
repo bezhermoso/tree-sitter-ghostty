@@ -433,36 +433,8 @@
           }
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "#"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[0-9a-fA-F]{6}"
-                  }
-                }
-              ]
-            }
-          },
-          "named": true,
-          "value": "color"
+          "type": "SYMBOL",
+          "name": "color"
         }
       ]
     },

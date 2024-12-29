@@ -4,7 +4,7 @@
 term = "xterm-256color"
 
 # Fonts
-font-family = "MonispaceNE NFM"
+font-family = MonispaceNE NFM
 font-size = 12
 font-thicken = true
 

@@ -14,15 +14,10 @@
 ] @number
 
 [
- (value)
  (string)
+ (color)
 ] @string
 
-[
-  (color)
-] @string.special
-
-(palette_value (color) @string.special)
 (palette_index) @variable.member
 
 (palette_value "=" @operator
@@ -49,7 +44,8 @@
 
 (keybind_trigger ">") @operator
 
-(color "#") @string.symbol
+(color "#" @punctuation.delimiter.special
+  (#eq? @punctuation.delimiter.special "#"))
 
 [
  (modifier_key)
