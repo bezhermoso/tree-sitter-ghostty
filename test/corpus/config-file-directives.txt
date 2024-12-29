@@ -10,7 +10,7 @@ config-file = ~/.config/ghostty/config.d/theme
  (directive
   (config_file_directive
    (property)
-   (path_value))))
+   (path_value (string)))))
 
 ==============================
 Config File Directive - Quoted
@@ -25,11 +25,11 @@ config-file = '~/.config/ghostty/config.d/theme'
  (directive
   (config_file_directive
    (property)
-   (path_value)))
+   (path_value (string))))
  (directive
   (config_file_directive
    (property)
-   (path_value))))
+   (path_value (string)))))
 
 ===================================
 Config File Directive - With Spaces
@@ -43,4 +43,4 @@ config-file = ~/.config/ghostty/config.d/my theme
  (directive
   (config_file_directive
    (property)
-   (path_value))))
+   (path_value (string)))))

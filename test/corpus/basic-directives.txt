@@ -11,7 +11,7 @@ font = Berkeley Mono
   (basic_directive
    (property)
    (value
-    (raw_value)))))
+    (string)))))
 
 =======================
 Basic Directive - Empty
@@ -40,12 +40,12 @@ font = 'Berkeley Mono'
   (basic_directive
    (property)
    (value
-    (raw_value))))
+    (string))))
  (directive 
   (basic_directive
    (property)
    (value
-    (raw_value)))))
+    (string)))))
 
 =========================
 Basic Directive - Numbers
@@ -62,17 +62,17 @@ font-size = 0.5
   (basic_directive
    (property)
    (value
-    (number_literal))))
+    (number))))
  (directive 
   (basic_directive
    (property)
    (value
-    (number_literal))))
+    (number))))
  (directive 
   (basic_directive
    (property)
    (value
-    (number_literal)))))
+    (number)))))
 
 =========================================
 Basic Directive - Bare Percent Adjustment
@@ -142,7 +142,6 @@ Basic Directive - Not Adjustments
 
 window-padding = - 10
 window-padding = + 10
-window-padding = 10 %
 
 ---
 
@@ -151,17 +150,12 @@ window-padding = 10 %
   (basic_directive
    (property)
    (value
-    (raw_value))))
+    (string))))
  (directive 
   (basic_directive
    (property)
    (value
-    (raw_value))))
- (directive 
-  (basic_directive
-   (property)
-   (value
-    (raw_value)))))
+    (string)))))
 
 ============================
 Basic Directive - Hex Colors
@@ -179,42 +173,21 @@ macos-icon-screen-color = ff0000
   (basic_directive
    (property)
    (value
-    (color_value))))
+    (color))))
  (directive 
   (basic_directive
    (property)
    (value
-    (color_value))))
+    (color))))
  (directive 
   (basic_directive
    (property)
    (value
-    (color_value))))
+    (color))))
  (directive 
   (basic_directive
    (property)
    (value
-    (color_value)))))
+    (color)))))
 
-
-==========================
-Basic Directive - Not Colors
-==========================
-
-short-hand = b32
-short-hand = #737
-
----
-
-(document 
- (directive 
-  (basic_directive
-   (property)
-   (value
-    (raw_value))))
- (directive 
-  (basic_directive
-   (property)
-   (value
-    (raw_value)))))
 

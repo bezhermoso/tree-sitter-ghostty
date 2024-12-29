@@ -30,9 +30,9 @@ keybind = ctrl+j=toggle
     (keybind_action
      (action_name))))))
 
-=====================================
-WIP: Keybind Directive - Special Keys
-=====================================
+================================
+Keybind Directive - Special Keys
+================================
 
 keybind = ctrl+up=toggle
 keybind = ctrl+down=toggle
@@ -502,9 +502,9 @@ keybind = "ctrl+a=foo:bar"
   (keybind_directive
    (property)
    (keybind_value
-    (string_literal))))
+    (string))))
  (directive
   (keybind_directive
    (property)
    (keybind_value
-    (string_literal)))))
+    (string)))))
