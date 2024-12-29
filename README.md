@@ -12,18 +12,18 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
 
 ## TODOs
 
-- [x] Comments
-- Directives
+- Grammar
+    - [x] Comments
     - [x] Raw values
     - [x] Numbers
     - [x] Percents
     - [x] Colors 
     - [x] Palette
-    - [ ] Keybindings (IN PROGRESS)
+    - [x] Keybindings (IN PROGRESS)
         - [x] Chords
         - [x] Modifiers
         - [x] Actions & arguments
-        - [ ] Special keys (e.g. `tab`, `space`, `up`)
+        - [x] Special keys (e.g. `tab`, `space`, `up`)
 - [x] Tests
 - [x] Capture highlight groups
 - [ ] Stable release
