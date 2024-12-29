@@ -1,4 +1,4 @@
-name: CI
+name: Tests
 
 on:
   workflow_dispatch:
@@ -39,8 +39,6 @@ jobs:
       - name: Run tests
         uses: tree-sitter/parser-test-action@v2
         with:
-          test-node: true
           test-rust: ${{runner.os == 'Linux'}}
           test-go: ${{runner.os == 'Windows'}}
           test-swift: ${{runner.os == 'macOS'}}
-          node-version: ${{vars.NODE_VERSION}}
