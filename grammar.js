@@ -14,7 +14,7 @@ module.exports = grammar({
   name: "ghostty",
 
   rules: {
-    source_file: $ => repeat(choice(
+    document: $ => repeat(choice(
         newline,
         $.comment,
         $.directive,

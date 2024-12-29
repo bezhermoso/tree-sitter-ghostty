@@ -7,7 +7,7 @@ keybind = ctrl+j=toggle
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -55,7 +55,7 @@ keybind = ctrl+f12=toggle
 
 ---
 
-(source_file
+(document
       (directive
         (keybind_directive
           (property)
@@ -246,7 +246,7 @@ keybind = ctrl+j>ctrl+j=toggle
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -286,7 +286,7 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -359,7 +359,7 @@ keybind = ctrl+shift+a=foobar:"A B"
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -406,7 +406,7 @@ keybind = ctrl+shift+physical:a=foo:BAR
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -421,15 +421,48 @@ keybind = ctrl+shift+physical:a=foo:BAR
      (action_name)
      (action_argument))))))
 
-=====================================
-Keybind Directive - Special Characters
-=====================================
+================================
+Keybind Directive - Special Keys
+================================
 
 keybind = ctrl+ö=action
+keybind = ctrl+up=action
+keybind = ctrl+plus=action
+keybind = ctrl+f10=action
 
 ---
 
-(source_file
+(document
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)))))
  (directive
   (keybind_directive
    (property)
@@ -449,7 +482,7 @@ keybind = clear
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)
@@ -464,7 +497,7 @@ keybind = "ctrl+a=foo:bar"
 
 ---
 
-(source_file
+(document
  (directive
   (keybind_directive
    (property)

@@ -6,7 +6,7 @@ config-file = ~/.config/ghostty/config.d/theme
 
 ---
 
-(source_file
+(document
  (directive
   (config_file_directive
    (property)
@@ -21,7 +21,7 @@ config-file = '~/.config/ghostty/config.d/theme'
 
 ---
 
-(source_file
+(document
  (directive
   (config_file_directive
    (property)
@@ -39,7 +39,7 @@ config-file = ~/.config/ghostty/config.d/my theme
 
 ---
 
-(source_file
+(document
  (directive
   (config_file_directive
    (property)

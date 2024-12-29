@@ -61,5 +61,6 @@ keybind = cmd+shift+a=toggle
 keybind = all:global:cmd+c=hello:a,b
 keybind = all:global:cmd+physical:c+b=hello:a,10
 keybind = all:global:cmd+physical:c+b>s+b=hello:a,10
+keybind = all:global:cmd+physical:up+b>s+b=hello:a,10
 #keybind = cmd+shift+opt+p=hello_world:loudly
 # keybind = unconsumed:cmd+shift+opt+p=hello

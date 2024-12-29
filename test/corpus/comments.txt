@@ -6,7 +6,7 @@ Comments
 
 ---
 
-(source_file
+(document
  (comment))
 
 ========
@@ -20,7 +20,7 @@ Multiple Comments
 
 ---
 
-(source_file
+(document
  (comment)
  (comment)
  (comment))

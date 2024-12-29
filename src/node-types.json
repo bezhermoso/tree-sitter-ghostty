@@ -122,6 +122,26 @@
     }
   },
   {
+    "type": "document",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "key",
     "named": true,
     "fields": {
@@ -352,26 +372,6 @@
     "type": "raw_value",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "source_file",
-    "named": true,
-    "root": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "directive",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "string_literal",

@@ -6,7 +6,7 @@ font = Berkeley Mono
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -21,7 +21,7 @@ font =
 
 ---
 
-(source_file
+(document
  (directive
   (basic_directive
    (property))))
@@ -35,7 +35,7 @@ font = 'Berkeley Mono'
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -57,7 +57,7 @@ font-size = 0.5
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -82,7 +82,7 @@ window-padding = 10%
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -99,7 +99,7 @@ window-padding = +10%
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -122,7 +122,7 @@ window-padding = +10
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -146,7 +146,7 @@ window-padding = 10 %
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -174,7 +174,7 @@ macos-icon-screen-color = ff0000
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)
@@ -206,7 +206,7 @@ short-hand = #737
 
 ---
 
-(source_file 
+(document 
  (directive 
   (basic_directive
    (property)

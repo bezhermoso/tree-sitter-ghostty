@@ -25,7 +25,7 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
         - [x] Actions & arguments
         - [ ] Special keys (e.g. `tab`, `space`, `up`)
 - [x] Tests
-- [ ] Neovim highlight groups (IN PROGRESS)
+- [x] Capture highlight groups
 - [ ] Stable release
     - [ ] Contribute queries to [nvim-treesitter] (No longer accepting experimental parsers)
 

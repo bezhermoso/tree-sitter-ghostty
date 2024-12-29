@@ -2,7 +2,7 @@
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "ghostty",
   "rules": {
-    "source_file": {
+    "document": {
       "type": "REPEAT",
       "content": {
         "type": "CHOICE",

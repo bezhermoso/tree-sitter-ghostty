@@ -9,7 +9,7 @@ palette = 1=000000
 
 ---
 
-(source_file 
+(document 
  (directive 
   (palette_directive
    (property)
