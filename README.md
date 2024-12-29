@@ -35,7 +35,14 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
 ### Neovim
 
 > [!IMPORTANT]
-> Requires [nvim-treesitter]
+> Requires [nvim-treesitter]. 
+
+> [!CAUTION]
+> The hifhlight capture groups may break as the grammar changes underneath it. 
+> For best results, **symink** it to the destination. When syntax highlighting breaks,
+> run `:TSInstall! ghostty` should fix the problem. 
+>
+> This should stop being an annoyance when we have a stable release. 
 
 1. Add this in your Lua config
 
@@ -55,7 +62,7 @@ parsers_config.ghostty = {
 
 2. Re-open Neovim & run `:TSInstall ghostty`. Follow prompts.
 
-3. Copy `./queries/highlights.scm` to `~/.config/nvim/after/queries/ghostty/highlights.scm`
+3. Symlink `./queries/highlights.scm` to `~/.config/nvim/after/queries/ghostty/highlights.scm`
 
 4. Open your Ghostty config and set its file-type to `ghostty`:
 
