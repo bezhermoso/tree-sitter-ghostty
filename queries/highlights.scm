@@ -26,6 +26,9 @@
 (palette_value (color_value) @string.special)
 (palette_index) @variable.member
 
+(palette_value "=" @operator
+  (#eq? @operator "="))
+
 (config_file_directive (path_value) @string.special.path)
 
 (config_file_directive (property) @keyword.import)

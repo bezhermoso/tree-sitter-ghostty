@@ -9,9 +9,6 @@
 const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
-const percent_assignment = /[+-]?[0-9]+(\.[0-9]+)?%/;
-const numemeric_assignment = /[+-][0-9]+(\.[0-9]+)?/;
-const hex_color = /#?[0-9a-fA-F]{6}/;
 
 module.exports = grammar({
   name: "ghostty",
@@ -69,9 +66,9 @@ module.exports = grammar({
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
     )),
-    color_value: $ => hex_color,
-    // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    //percent_adjustment: $ => percent_assignment,
+    color_value: $ => token(
+      prec(2, hex_color_seq()),
+    ),
     percent_adjustment: $ => token(
       prec(
         2,
@@ -82,8 +79,6 @@ module.exports = grammar({
         ),
       ),
     ),
-    // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    //numeric_adjustment: $ => numemeric_assignment,
     numeric_adjustment: $ => token(
       prec(
         1,
@@ -110,7 +105,7 @@ module.exports = grammar({
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
       token.immediate("="),
-      alias(token.immediate(hex_color), $.color_value),
+      alias(token.immediate(hex_color_seq()), $.color_value),
     ),
 
     // `config-file` directive
@@ -193,3 +188,7 @@ function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
 
+
+function hex_color_seq()  {
+  return seq(optional("#"), token.immediate(/[0-9a-fA-F]{6}/));
+}
