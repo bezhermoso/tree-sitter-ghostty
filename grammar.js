@@ -47,28 +47,31 @@ module.exports = grammar({
     value: $ => seq(
       optional(/\s+/),
       choice(
-        $.boolean_literal,
-        $.number_literal,
+        $.boolean,
+        $.number,
         $.adjustment,
-        $.color_value,
-        $.string_literal,
-        $.raw_value,
+        $.color,
+        $.string,
+        //$.raw_value,
       )
     ),
 
-    boolean_literal: $ => choice("true", "false"),
-    number_literal: $ => number,
+    boolean: $ => choice("true", "false"),
+    number: $ => number,
     adjustment: $ => choice(
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
-    string_literal: $ => prec(1, choice(
+    string: $ => prec(1, choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
+      seq(
+        /[^#]/,
+        $._raw_value,
+      )
     )),
-    color_value: $ => token(
+    color: $ => 
       prec(2, hex_color_seq()),
-    ),
     percent_adjustment: $ => token(
       prec(
         2,
@@ -90,7 +93,7 @@ module.exports = grammar({
     ),
     //
     // Fallback. Setting a negative precedence so that more complex (i.e. composite) grammars win.
-    raw_value: $ => prec(-1, anything),
+    _raw_value: $ => prec(-1, anything),
 
     // `palette` directive
     palette_directive: $ => seq(
@@ -105,7 +108,7 @@ module.exports = grammar({
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
       token.immediate("="),
-      alias(token.immediate(hex_color_seq()), $.color_value),
+      alias(token.immediate(hex_color_seq()), $.color),
     ),
 
     // `config-file` directive
@@ -115,7 +118,7 @@ module.exports = grammar({
       field("value", $.path_value),
       newline,
     ),
-    path_value: $ => anything,
+    path_value: $ => $.string,
 
     // `keybind` directive
     keybind_directive: $ => seq(
@@ -127,7 +130,7 @@ module.exports = grammar({
 
     // The overall syntax for keybind values
     keybind_value: $ => choice(
-      $.string_literal,
+      $.string,
       "clear",
       seq(
         optional(repeat($.keybind_modifier)),

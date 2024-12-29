@@ -6,24 +6,23 @@
 (property) @variable
 
 ; Values
-(boolean_literal) @boolean
+(boolean) @boolean
 
 [
- (number_literal)
+ (number)
  (adjustment)
 ] @number
 
 [
  (value)
- (raw_value)
- (string_literal)
+ (string)
 ] @string
 
 [
-  (color_value)
+  (color)
 ] @string.special
 
-(palette_value (color_value) @string.special)
+(palette_value (color) @string.special)
 (palette_index) @variable.member
 
 (palette_value "=" @operator
@@ -49,6 +48,8 @@
 ] @operator
 
 (keybind_trigger ">") @operator
+
+(color "#") @string.symbol
 
 [
  (modifier_key)

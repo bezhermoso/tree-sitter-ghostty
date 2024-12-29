@@ -45,7 +45,7 @@
     }
   },
   {
-    "type": "boolean_literal",
+    "type": "boolean",
     "named": true,
     "fields": {}
   },
@@ -67,6 +67,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "color",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "config_file_directive",
@@ -302,7 +307,7 @@
           "named": true
         },
         {
-          "type": "string_literal",
+          "type": "string",
           "named": true
         }
       ]
@@ -348,7 +353,7 @@
       "required": true,
       "types": [
         {
-          "type": "color_value",
+          "type": "color",
           "named": true
         },
         {
@@ -361,7 +366,17 @@
   {
     "type": "path_value",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "property",
@@ -369,12 +384,7 @@
     "fields": {}
   },
   {
-    "type": "raw_value",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "string_literal",
+    "type": "string",
     "named": true,
     "fields": {}
   },
@@ -391,23 +401,19 @@
           "named": true
         },
         {
-          "type": "boolean_literal",
+          "type": "boolean",
           "named": true
         },
         {
-          "type": "color_value",
+          "type": "color",
           "named": true
         },
         {
-          "type": "number_literal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "raw_value",
-          "named": true
-        },
-        {
-          "type": "string_literal",
+          "type": "string",
           "named": true
         }
       ]
@@ -415,6 +421,10 @@
   },
   {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#",
     "named": false
   },
   {
@@ -462,10 +472,6 @@
     "named": false
   },
   {
-    "type": "color_value",
-    "named": true
-  },
-  {
     "type": "command",
     "named": false
   },
@@ -494,7 +500,7 @@
     "named": false
   },
   {
-    "type": "number_literal",
+    "type": "number",
     "named": true
   },
   {
