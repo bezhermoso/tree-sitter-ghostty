@@ -1,13 +1,25 @@
 # tree-sitter-ghostty
 
-[![Tests](https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml/badge.svg)](https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml)
+<div align="center">
+    <div>
+        <a href="https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml">
+            <img src="https://github.com/bezhermoso/tree-sitter-ghostty/actions/workflows/ci.yml/badge.svg">
+        </a>
+    </div>
+    <br>
+    <img width="250" src="https://github.com/user-attachments/assets/436d9afe-58aa-4a97-8838-3c3cee01be25" align="center" />
+    <div>
+    <br>
+        <p>
+        Tree-sitter grammar for <a href="https://ghostty.org">Ghostty</a> configuration files
+        </p>
+    </div>
+</div>
 
-> [!WARNING]
-> This is still **experimental**
+<img width="973" alt="SCR-20241229-lkzj" src="https://github.com/user-attachments/assets/03a52e60-038e-4a4d-9726-9c57643e996d" />
 
-Tree-sitter grammar/parser for [Ghostty] configuration files
+<img width="973" alt="SCR-20241229-llbi" src="https://github.com/user-attachments/assets/78eb32e8-c94c-495b-b73d-ee200b4c5187" />
 
-<img width="416" alt="SCR-20241227-cwql" src="https://github.com/user-attachments/assets/143dd0f9-c28d-4bfe-a084-db6bf4ac5dc9" />
 
 
 ## TODOs
@@ -30,14 +42,11 @@ Tree-sitter grammar/parser for [Ghostty] configuration files
     - [ ] Contribute queries to [nvim-treesitter] (No longer accepting experimental parsers)
 
 
-## How to use
-
-### Neovim
+## Neovim
 
 > [!IMPORTANT]
-> Requires [nvim-treesitter]. 
-
-> [!CAUTION]
+> Requires [nvim-treesitter].
+>
 > The highlight capture groups may break as the grammar changes underneath it. 
 > For best results, **symink** it to the destination. When syntax highlighting breaks,
 > running `:TSInstall! ghostty` should fix the problem. 
@@ -78,7 +87,7 @@ You can also add this line to the top of your Ghostty config:
  # The rest of your Ghostty configuration 👻...
 ```
 
-### Helix
+## Helix
 
 1. Add this to your `languages.toml`
 
@@ -96,7 +105,7 @@ name = "ghostty"
 source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty", rev = "main" }
 ```
 
-2. In your `runtime` directory, symlink `queries/ghostty/highlights.scm` to `grammars/sources/ghostty/queries/highlights.scm`
+2. In your `runtime` directory, symlink `./queries/ghostty/highlights.scm` to `grammars/sources/ghostty/queries/highlights.scm`
 
 [Ghostty]: https://ghostty.org
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
