@@ -14,8 +14,8 @@ keybind = ctrl+j=toggle
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)))))
@@ -25,7 +25,7 @@ keybind = ctrl+j=toggle
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name))))))
@@ -62,7 +62,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -72,7 +72,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -82,7 +82,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -92,7 +92,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -102,7 +102,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -112,7 +112,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -122,7 +122,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -132,7 +132,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -142,7 +142,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -152,7 +152,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -162,7 +162,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -172,7 +172,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -182,7 +182,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -192,7 +192,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -202,7 +202,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -212,7 +212,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -222,7 +222,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name)))))
@@ -232,7 +232,7 @@ keybind = ctrl+f12=toggle
           (keybind_value
             (keybind_trigger
               (chord
-                (key_modifier)
+                (modifier_key)
                 (key)))
             (keybind_action
               (action_name))))))
@@ -253,8 +253,8 @@ keybind = ctrl+j>ctrl+j=toggle
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key))
      (chord
       (key)))
@@ -266,10 +266,10 @@ keybind = ctrl+j>ctrl+j=toggle
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
+      (modifier_key)
       (key))
      (chord
-      (key_modifier)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name))))))
@@ -294,8 +294,8 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
     (keybind_modifier)
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)))))
@@ -306,8 +306,8 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
     (keybind_modifier)
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)))))
@@ -318,8 +318,8 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
     (keybind_modifier)
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)))))
@@ -330,8 +330,8 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
     (keybind_modifier)
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)))))
@@ -343,8 +343,8 @@ keybind = global:unconsumed:ctrl+shift+a=toggle
     (keybind_modifier)
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name))))))
@@ -366,8 +366,8 @@ keybind = ctrl+shift+a=foobar:"A B"
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)
@@ -378,8 +378,8 @@ keybind = ctrl+shift+a=foobar:"A B"
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)
@@ -390,8 +390,8 @@ keybind = ctrl+shift+a=foobar:"A B"
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name)
@@ -413,10 +413,10 @@ keybind = ctrl+shift+physical:a=foo:BAR
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
-      (key_modifier)
+      (modifier_key)
+      (modifier_key)
       (key 
-       (key_prefix))))
+       (key_qualifier))))
     (keybind_action
      (action_name)
      (action_argument))))))
@@ -436,26 +436,42 @@ keybind = ctrl+ö=action
    (keybind_value
     (keybind_trigger
      (chord
-      (key_modifier)
+      (modifier_key)
       (key)))
     (keybind_action
      (action_name))))))
 
-=====================================
+==================================
 Keybind Directive - Clear Keybinds
-=====================================
+==================================
 
 keybind = clear
-keybind = "clear"
 
 ---
 
 (source_file
-      (directive
-        (keybind_directive
-          (property)
-          (value)))
-      (directive
-        (keybind_directive
-          (property)
-          (value))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value))))
+
+=================================
+Keybind Directive - Quoted Values
+=================================
+
+keybind = "clear"
+keybind = "ctrl+a=foo:bar"
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (string_literal))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (string_literal)))))

@@ -3,7 +3,7 @@
 (comment) @comment
 
 ; Keys
-(property) @property
+(property) @variable
 
 ; Values
 (boolean_literal) @boolean
@@ -23,6 +23,34 @@
     (color_value)
 ] @markup.bold
 
-(palette_value [(color_value) (palette_index)] @markup.italic @markup.bold)
+(palette_value (color_value) @string.special)
+(palette_index) @variable.member
 
 (config_file_directive (path_value) @string.special.path)
+
+(config_file_directive (property) @keyword.import)
+
+; Keybinds
+(keybind_value) @string.special
+
+
+((keybind_value) @keyword
+                 (#eq? @keyword "clear"))
+
+(keybind_action) @function.call
+(action_argument) @variable.parameter
+
+[
+ "+"
+ "="
+] @operator
+
+(keybind_trigger ">") @operator
+
+[
+ (modifier_key)
+ (key)
+] @constant.builtin
+
+(key_qualifier) @attribute
+(keybind_modifier) @keyword.modifier

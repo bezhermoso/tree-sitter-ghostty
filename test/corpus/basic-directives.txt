@@ -13,6 +13,19 @@ font = Berkeley Mono
    (value
     (raw_value)))))
 
+=======================
+Basic Directive - Empty
+=======================
+
+font = 
+
+---
+
+(source_file
+ (directive
+  (basic_directive
+   (property))))
+
 ================================
 Basic Directive - Quoted Strings
 ================================
@@ -204,3 +217,4 @@ short-hand = #737
    (property)
    (value
     (raw_value)))))
+

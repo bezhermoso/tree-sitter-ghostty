@@ -37,7 +37,7 @@ module.exports = grammar({
 
     basic_directive: $ => seq(
       field("property", $.property),
-      "=",
+      token("="),
       optional(field("value", $.value)),
       newline,
     ),
@@ -47,13 +47,16 @@ module.exports = grammar({
     property : $ => choice($._kebab_case_identifier),
     // Value types can be boolean, string, number, "adjustments", or hex color
     // `palette` values a handled separately
-    value: $ => choice(
-      $.boolean_literal,
-      $.number_literal,
-      $.adjustment,
-      $.color_value,
-      $.string_literal,
-      $.raw_value,
+    value: $ => seq(
+      optional(/\s+/),
+      choice(
+        $.boolean_literal,
+        $.number_literal,
+        $.adjustment,
+        $.color_value,
+        $.string_literal,
+        $.raw_value,
+      )
     ),
 
     boolean_literal: $ => choice("true", "false"),
@@ -62,21 +65,37 @@ module.exports = grammar({
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
-    string_literal: $ => choice(
+    string_literal: $ => prec(1, choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
-    ),
+    )),
     color_value: $ => hex_color,
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    percent_adjustment: $ => percent_assignment,
-    //percent_adjustment: $ => seq(number, token.immediate("%")),
+    //percent_adjustment: $ => percent_assignment,
+    percent_adjustment: $ => token(
+      prec(
+        2,
+        seq(
+          optional(choice("-", "+")),
+          token.immediate(number),
+          token.immediate("%"),
+        ),
+      ),
+    ),
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
-    numeric_adjustment: $ => numemeric_assignment,
-    //numeric_adjustment: $ => seq(/[+-]/, token.immediate(number)),
+    //numeric_adjustment: $ => numemeric_assignment,
+    numeric_adjustment: $ => token(
+      prec(
+        1,
+        seq(
+          choice("-", "+"),
+          token.immediate(number)
+        )
+      )
+    ),
     //
-    // Fallback
-    raw_value: $ => anything,
-
+    // Fallback. Setting a negative precedence so that more complex (i.e. composite) grammars win.
+    raw_value: $ => prec(-1, anything),
 
     // `palette` directive
     palette_directive: $ => seq(
@@ -87,6 +106,7 @@ module.exports = grammar({
       ),
       newline,
     ),
+
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
       token.immediate("="),
@@ -96,7 +116,7 @@ module.exports = grammar({
     // `config-file` directive
     config_file_directive: $ => seq(
       field("property", alias("config-file", $.property)),
-      "=",
+      token("="),
       field("value", $.path_value),
       newline,
     ),
@@ -105,18 +125,21 @@ module.exports = grammar({
     // `keybind` directive
     keybind_directive: $ => seq(
       field("property", alias("keybind", $.property)),
-      "=",
-      field("value", $._keybind_value),
+      /\s*=\s*/,
+      field("value", $.keybind_value),
       newline,
     ),
-    _keybind_value: $ => choice($.keybind_value, alias("clear", $.keybind_clear_keyword), alias($.string_literal, $.value)),
 
     // The overall syntax for keybind values
-    keybind_value: $ => seq(
-      optional(repeat($.keybind_modifier)),
-      field("trigger", $.keybind_trigger),
-      token.immediate("="),
-      field("action", $.keybind_action),
+    keybind_value: $ => choice(
+      $.string_literal,
+      "clear",
+      seq(
+        optional(repeat($.keybind_modifier)),
+        field("trigger", $.keybind_trigger),
+        token.immediate("="),
+        field("action", $.keybind_action),
+      )
     ),
 
     // Modifier for the entire keybind
@@ -129,16 +152,16 @@ module.exports = grammar({
       token.immediate(":"),
     ),
 
-    // Prefix for a single key
-    key_prefix: $ => seq(field("prefix_name", "physical"), token.immediate(":")),
+    // Key qualifier
+    key_qualifier: $ => seq(field("qualifier", token("physical")), token.immediate(":")),
     // The keybind themselves. Ghostty supports stringing chords together.
     keybind_trigger: $ => sep1($.chord, ">"),
 
     // A cluster of keys that must be pressed together.
-    chord: $ => sep1(choice($.key_modifier, $.key), "+"),
+    chord: $ => sep1(choice($.modifier_key, $.key), "+"),
 
     // Modifier keys
-    key_modifier: $ => choice(
+    modifier_key: $ => choice(
       "shift",
       "ctrl", "control",
       "alt", "option", "opt",
@@ -147,8 +170,10 @@ module.exports = grammar({
 
     // Non-modifier keys
     key: $ => seq(
-      optional($.key_prefix),
-      field("bind", choice($._snake_case_identifier, /[^>=:]{1}/)),
+      optional(field("qualifier", $.key_qualifier)),
+      token.immediate(
+        field("bind", choice(/[a-z0-9]+(\_[a-z0-9]+)*/, /[^>=:]{1}/)),
+      )
     ),
 
     // The action to be taken when the keybind is triggered
@@ -157,7 +182,7 @@ module.exports = grammar({
       optional(
         seq(
           token.immediate(":"),
-          field("argument", alias($.raw_value, $.action_argument)),
+          field("argument", alias(anything, $.action_argument)),
         ),
       ),
     ),

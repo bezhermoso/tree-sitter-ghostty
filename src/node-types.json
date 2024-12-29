@@ -1,10 +1,5 @@
 [
   {
-    "type": "action_argument",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "adjustment",
     "named": true,
     "fields": {},
@@ -67,7 +62,7 @@
           "named": true
         },
         {
-          "type": "key_modifier",
+          "type": "modifier_key",
           "named": true
         }
       ]
@@ -129,28 +124,24 @@
   {
     "type": "key",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "key_prefix",
-          "named": true
-        }
-      ]
+    "fields": {
+      "qualifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "key_qualifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
-    "type": "key_modifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "key_prefix",
+    "type": "key_qualifier",
     "named": true,
     "fields": {
-      "prefix_name": {
+      "qualifier": {
         "multiple": false,
         "required": true,
         "types": [
@@ -209,10 +200,6 @@
           {
             "type": "keybind_value",
             "named": true
-          },
-          {
-            "type": "value",
-            "named": true
           }
         ]
       }
@@ -267,7 +254,7 @@
     "fields": {
       "action": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "keybind_action",
@@ -277,7 +264,7 @@
       },
       "trigger": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "keybind_trigger",
@@ -293,9 +280,18 @@
         {
           "type": "keybind_modifier",
           "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "modifier_key",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "palette_directive",
@@ -388,7 +384,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "adjustment",
@@ -442,6 +438,10 @@
     "named": false
   },
   {
+    "type": "action_argument",
+    "named": true
+  },
+  {
     "type": "action_name",
     "named": true
   },
@@ -451,6 +451,10 @@
   },
   {
     "type": "alt",
+    "named": false
+  },
+  {
+    "type": "clear",
     "named": false
   },
   {

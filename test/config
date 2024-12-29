@@ -54,6 +54,9 @@ macos-icon-screen-color = 202020
 
 config-file = ~/.config/ghostty/theme
 
+keybind = clear
+keybind = "clear"
+
 # keybind = cmd+shift+a=toggle
 keybind = all:global:cmd+c=hello:a,b
 keybind = all:global:cmd+physical:c+b=hello:a,10
