@@ -20,8 +20,8 @@
 ] @string
 
 [
-    (color_value)
-] @markup.bold
+  (color_value)
+] @string.special
 
 (palette_value (color_value) @string.special)
 (palette_index) @variable.member
@@ -52,5 +52,4 @@
  (key)
 ] @constant.builtin
 
-(key_qualifier) @attribute
-(keybind_modifier) @keyword.modifier
+[(key_qualifier) (keybind_modifier)] @attribute
