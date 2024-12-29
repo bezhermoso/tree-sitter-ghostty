@@ -31,7 +31,7 @@
     - [x] Percents
     - [x] Colors 
     - [x] Palette
-    - [x] Keybindings (IN PROGRESS)
+    - [x] Keybindings
         - [x] Chords
         - [x] Modifiers
         - [x] Actions & arguments
