@@ -66,7 +66,7 @@ module.exports = grammar({
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
     ),
-    color_value: $ => token(prec(1,hex_color)),
+    color_value: $ => hex_color,
     // Expressed as separate regexes to avoid lexical precedence issues with `raw_value`
     percent_adjustment: $ => percent_assignment,
     //percent_adjustment: $ => seq(number, token.immediate("%")),
@@ -130,8 +130,7 @@ module.exports = grammar({
     ),
 
     // Prefix for a single key
-    key_prefix: $ => "physical",
-
+    key_prefix: $ => seq(field("prefix_name", "physical"), token.immediate(":")),
     // The keybind themselves. Ghostty supports stringing chords together.
     keybind_trigger: $ => sep1($.chord, ">"),
 
@@ -148,13 +147,8 @@ module.exports = grammar({
 
     // Non-modifier keys
     key: $ => seq(
-      optional(
-        seq(
-          $.key_prefix,
-          token.immediate(":"),
-        )
-      ),
-      field("bind", $._snake_case_identifier),
+      optional($.key_prefix),
+      field("bind", choice($._snake_case_identifier, /[^>=:]{1}/)),
     ),
 
     // The action to be taken when the keybind is triggered

@@ -422,6 +422,26 @@ keybind = ctrl+shift+physical:a=foo:BAR
      (action_argument))))))
 
 =====================================
+Keybind Directive - Special Characters
+=====================================
+
+keybind = ctrl+ö=action
+
+---
+
+(source_file
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (key_modifier)
+      (key)))
+    (keybind_action
+     (action_name))))))
+
+=====================================
 Keybind Directive - Clear Keybinds
 =====================================
 

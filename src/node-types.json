@@ -147,6 +147,22 @@
     "fields": {}
   },
   {
+    "type": "key_prefix",
+    "named": true,
+    "fields": {
+      "prefix_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "physical",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "keybind_action",
     "named": true,
     "fields": {
@@ -470,10 +486,6 @@
     "named": false
   },
   {
-    "type": "key_prefix",
-    "named": true
-  },
-  {
     "type": "local",
     "named": false
   },
@@ -500,6 +512,10 @@
   {
     "type": "percent_adjustment",
     "named": true
+  },
+  {
+    "type": "physical",
+    "named": false
   },
   {
     "type": "shift",

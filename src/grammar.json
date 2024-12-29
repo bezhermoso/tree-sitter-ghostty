@@ -224,15 +224,8 @@
       ]
     },
     "color_value": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 1,
-        "content": {
-          "type": "PATTERN",
-          "value": "#?[0-9a-fA-F]{6}"
-        }
-      }
+      "type": "PATTERN",
+      "value": "#?[0-9a-fA-F]{6}"
     },
     "percent_adjustment": {
       "type": "PATTERN",
@@ -501,8 +494,24 @@
       ]
     },
     "key_prefix": {
-      "type": "STRING",
-      "value": "physical"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "prefix_name",
+          "content": {
+            "type": "STRING",
+            "value": "physical"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        }
+      ]
     },
     "keybind_trigger": {
       "type": "SEQ",
@@ -620,20 +629,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "key_prefix"
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": ":"
-                  }
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "key_prefix"
             },
             {
               "type": "BLANK"
@@ -644,8 +641,17 @@
           "type": "FIELD",
           "name": "bind",
           "content": {
-            "type": "SYMBOL",
-            "name": "_snake_case_identifier"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_snake_case_identifier"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^>=:]{1}"
+              }
+            ]
           }
         }
       ]
