@@ -8,6 +8,7 @@ on:
     paths:
       - grammar.js
       - src/**
+      - queries/**
       - test/**
       - bindings/**
       - binding.gyp
@@ -15,6 +16,7 @@ on:
     paths:
       - grammar.js
       - src/**
+      - queries/**
       - test/**
       - bindings/**
       - binding.gyp
