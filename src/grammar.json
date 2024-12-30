@@ -351,13 +351,8 @@
             ]
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_raw_value"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_raw_value"
           }
         ]
       }
