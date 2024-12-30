@@ -32,15 +32,10 @@ module.exports = grammar({
       $.keybind_directive,
     ),
 
-    basic_directive: $ => seq(
-      field("property", $.property),
-      token("="),
-      optional(field("value", $.value)),
-      newline,
-    ),
+    basic_directive: $ => directive_seq($.property, $.value),
 
     _kebab_case_identifier : $ => /[a-z]+(-[a-z]+)*/,
-    _snake_case_identifier : $ => /[a-z\_]+\d*/,
+    _snake_case_identifier : $ => /[a-z\_]+[0-9]*/,
     property : $ => choice($._kebab_case_identifier),
     // Value types can be boolean, string, number, "adjustments", or hex color
     // `palette` values a handled separately
@@ -94,14 +89,7 @@ module.exports = grammar({
     _raw_value: $ => prec(-1, anything),
 
     // `palette` directive
-    palette_directive: $ => seq(
-      field("property", alias("palette", $.property)),
-      "=",
-      optional(
-        field("value", $.palette_value),
-      ),
-      newline,
-    ),
+    palette_directive: $ => directive_seq(alias("palette", $.property), $.palette_value),
 
     palette_value: $ => seq(
       alias(/[0-9]{1,3}/, $.palette_index),
@@ -110,21 +98,11 @@ module.exports = grammar({
     ),
 
     // `config-file` directive
-    config_file_directive: $ => seq(
-      field("property", alias("config-file", $.property)),
-      token("="),
-      field("value", $.path_value),
-      newline,
-    ),
+    config_file_directive: $ => directive_seq(alias("config-file", $.property), $.path_value),
     path_value: $ => $.string,
 
     // `keybind` directive
-    keybind_directive: $ => seq(
-      field("property", alias("keybind", $.property)),
-      /\s*=\s*/,
-      field("value", $.keybind_value),
-      newline,
-    ),
+    keybind_directive: $ => directive_seq(alias("keybind", $.property), $.keybind_value),
 
     // The overall syntax for keybind values
     keybind_value: $ => choice(
@@ -135,7 +113,7 @@ module.exports = grammar({
         field("trigger", $.keybind_trigger),
         token.immediate("="),
         field("action", $.keybind_action),
-      )
+      ),
     ),
 
     // Modifier for the entire keybind
@@ -168,7 +146,7 @@ module.exports = grammar({
     key: $ => seq(
       optional(field("qualifier", $.key_qualifier)),
       token.immediate(
-        field("bind", choice(/[a-z0-9]+(\_[a-z0-9]+)*/, /[^>=:]{1}/)),
+        field("bind", choice(/[a-z0-9]+(\_[a-z0-9]+)*/, /[^>=:\s]{1}/)),
       )
     ),
 
@@ -192,4 +170,15 @@ function sep1(rule, separator) {
 
 function hex_color_seq()  {
   return seq(optional("#"), token.immediate(/[0-9a-fA-F]{6}/));
+}
+
+function directive_seq(key, value) {
+  return seq(
+      field("property", key),
+      "=",
+      optional(
+        field("value", value),
+      ),
+      newline,
+    );
 }
