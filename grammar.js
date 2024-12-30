@@ -34,8 +34,9 @@ module.exports = grammar({
 
     basic_directive: $ => directive_seq($.property, $.value),
 
-    _kebab_case_identifier : $ => /[a-z]+(-[a-z]+)*/,
-    _snake_case_identifier : $ => /[a-z\_]+[0-9]*/,
+    _kebab_case_identifier : $ => sep1(/[0-9a-z]+/, "-"),
+    _snake_case_identifier : $ => snake_case_seq(),
+
     property : $ => choice($._kebab_case_identifier),
     // Value types can be boolean, string, number, "adjustments", or hex color
     // `palette` values a handled separately
@@ -127,7 +128,11 @@ module.exports = grammar({
     ),
 
     // Key qualifier
-    key_qualifier: $ => seq(field("qualifier", token("physical")), token.immediate(":")),
+    key_qualifier: $ => seq(
+      field("qualifier", token("physical")),
+      token.immediate(":")
+    ),
+
     // The keybind themselves. Ghostty supports stringing chords together.
     keybind_trigger: $ => sep1($.chord, ">"),
 
@@ -146,7 +151,7 @@ module.exports = grammar({
     key: $ => seq(
       optional(field("qualifier", $.key_qualifier)),
       token.immediate(
-        field("bind", choice(/[a-z0-9]+(\_[a-z0-9]+)*/, /[^>=:\s]{1}/)),
+        field("bind", choice(snake_case_seq(), /[^>=:\s]{1}/)),
       )
     ),
 
@@ -170,6 +175,10 @@ function sep1(rule, separator) {
 
 function hex_color_seq()  {
   return seq(optional("#"), token.immediate(/[0-9a-fA-F]{6}/));
+}
+
+function snake_case_seq() {
+  return sep1(/[0-9a-z]+/, "_");
 }
 
 function directive_seq(key, value) {
