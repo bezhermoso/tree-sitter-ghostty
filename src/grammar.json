@@ -124,8 +124,11 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "STRING",
-                "value": "-"
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "-"
+                }
               },
               {
                 "type": "IMMEDIATE_TOKEN",
@@ -155,8 +158,11 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "STRING",
-                "value": "_"
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "_"
+                }
               },
               {
                 "type": "IMMEDIATE_TOKEN",
@@ -296,7 +302,7 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^#]"
+                "value": "[^#\\s]"
               },
               {
                 "type": "SYMBOL",
@@ -845,8 +851,11 @@
                         "type": "SEQ",
                         "members": [
                           {
-                            "type": "STRING",
-                            "value": "_"
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "STRING",
+                              "value": "_"
+                            }
                           },
                           {
                             "type": "IMMEDIATE_TOKEN",

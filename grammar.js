@@ -62,7 +62,7 @@ module.exports = grammar({
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
       seq(
-        /[^#]/,
+        /[^#\s]/,
         $._raw_value,
       )
     )),
