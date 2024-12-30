@@ -9,6 +9,7 @@
 const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
+const word = /[0-9a-z]+/
 
 module.exports = grammar({
   name: "ghostty",
@@ -34,7 +35,7 @@ module.exports = grammar({
 
     basic_directive: $ => directive_seq($.property, $.value),
 
-    _kebab_case_identifier : $ => sep1(/[0-9a-z]+/, "-"),
+    _kebab_case_identifier : $ => sep1(token.immediate(word), token.immediate("-")),
     _snake_case_identifier : $ => snake_case_seq(),
 
     property : $ => choice($._kebab_case_identifier),
@@ -61,7 +62,7 @@ module.exports = grammar({
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
       seq(
-        /[^#]/,
+        /[^#\s]/,
         $._raw_value,
       )
     )),
@@ -178,7 +179,7 @@ function hex_color_seq()  {
 }
 
 function snake_case_seq() {
-  return sep1(/[0-9a-z]+/, "_");
+  return seq(word, repeat(seq(token.immediate("_"), token.immediate(word)));
 }
 
 function directive_seq(key, value) {
