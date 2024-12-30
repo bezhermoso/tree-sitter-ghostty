@@ -91,4 +91,10 @@ clean:
 test:
 	$(TS) test
 
-.PHONY: all install uninstall clean test
+nvim_install:
+	rm -f parser/ghostty.so
+	mkdir parser
+	$(TS) build -o parser/ghostty.so
+
+.PHONY: all install uninstall clean test nvim_install
+

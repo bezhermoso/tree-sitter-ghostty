@@ -44,42 +44,24 @@
 
 ## Neovim
 
-> [!IMPORTANT]
-> Requires [nvim-treesitter].
->
-> The highlight capture groups may break as the grammar changes underneath it. 
-> For best results, **symink** it to the destination. When syntax highlighting breaks,
-> running `:TSInstall! ghostty` should fix the problem. 
->
-> This should stop being an annoyance when we have a stable release. 
+### lazy.nvim
 
-1. Add this in your Lua config
+Add this:
 
 ```lua
-
-local parsers_config = require('nvim-treesitter.parsers').get_parser_configs()
--- Register this parser manually to nvim-treesitter's parser directory
-parsers_config.ghostty = {
-    install_info = {
-        url = 'https://github.com/bezhermoso/tree-sitter-ghostty',
-        files = { 'src/parser.c' },
-        branch = 'main',
-        requires_generate_from_grammar = true,
-    },
+{
+    "bezhermoso/tree-sitter-ghostty",
+    build = "make nvim_install",
+    ft = "ghostty"
 }
 ```
 
-2. Re-open Neovim & run `:TSInstall ghostty`. Follow prompts.
+> [!NOTE]
+> [nvim-treesitter] is not required. However if you have one installed, this plugin will attempt to register
+> itself as a parser for `nvim-treesitter` to manage.
 
-3. Symlink `./queries/highlights.scm` to `~/.config/nvim/after/queries/ghostty/highlights.scm`
-
-4. Open your Ghostty config and set its file-type to `ghostty`:
-
-```
-:set ft=ghostty
-```
-
-You can also add this line to the top of your Ghostty config:
+Installing this as a plugin should automatically enable syntax highlighting for Ghostty configuration files located in
+expected paths. You can add this line to the top of your config file if its filetype is not detected automatically:
 
 ```diff
 +# vim: ft=ghostty
