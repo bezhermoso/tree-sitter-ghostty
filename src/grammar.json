@@ -112,8 +112,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[0-9a-z]+"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[0-9a-z]+"
+          }
         },
         {
           "type": "REPEAT",
@@ -125,8 +128,11 @@
                 "value": "-"
               },
               {
-                "type": "PATTERN",
-                "value": "[0-9a-z]+"
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[0-9a-z]+"
+                }
               }
             ]
           }
@@ -137,8 +143,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[0-9a-z]+"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[0-9a-z]+"
+          }
         },
         {
           "type": "REPEAT",
@@ -150,8 +159,11 @@
                 "value": "_"
               },
               {
-                "type": "PATTERN",
-                "value": "[0-9a-z]+"
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[0-9a-z]+"
+                }
               }
             ]
           }
@@ -821,8 +833,11 @@
                   "type": "SEQ",
                   "members": [
                     {
-                      "type": "PATTERN",
-                      "value": "[0-9a-z]+"
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "[0-9a-z]+"
+                      }
                     },
                     {
                       "type": "REPEAT",
@@ -834,8 +849,11 @@
                             "value": "_"
                           },
                           {
-                            "type": "PATTERN",
-                            "value": "[0-9a-z]+"
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PATTERN",
+                              "value": "[0-9a-z]+"
+                            }
                           }
                         ]
                       }
