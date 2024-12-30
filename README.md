@@ -57,8 +57,8 @@ Add this:
 ```
 
 > [!NOTE]
-> [nvim-treesitter] is not required. However if you have one installed, this plugin will attempt to register
-> itself as a parser for `nvim-treesitter` to manage.
+> Having [nvim-treesitter] installed is not required. However if you have it installed, this plugin will attempt to register
+> itself as a parser so that `nvim-treesitter` can manage it e.g. `:TSInstall! ghostty`.
 
 Installing this as a plugin should automatically enable syntax highlighting for Ghostty configuration files located in
 expected paths. You can add this line to the top of your config file if its filetype is not detected automatically:
