@@ -114,7 +114,10 @@ module.exports = grammar({
 
     // `config-file` directive
     config_file_directive: $ => directive_seq(alias("config-file", $.property), $.path_value),
-    path_value: $ => $.string,
+    path_value: $ => seq(
+      optional("?"),
+      $.string
+    ),
 
     // `keybind` directive
     keybind_directive: $ => directive_seq(alias("keybind", $.property), $.keybind_value),

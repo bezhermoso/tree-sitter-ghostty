@@ -31,6 +31,8 @@
 ; `config-file`
 (config_file_directive (property) @keyword.import)
 (config_file_directive (path_value) @string.special.path)
+(path_value "?" @keyword.conditional
+    (#eq? @keyword.conditional "?"))
 
 ; `keybind`
 (keybind_value) @string.special

@@ -57,3 +57,27 @@ config-file =
  (directive
   (config_file_directive
    (property))))
+
+=====================================
+Config File Directive - Optional File
+=====================================
+
+config-file = ?~/work/ghostty/config
+config-file = ?"~/work/ghostty/config"
+config-file = "?oddly/named/dir/config"
+
+---
+
+(document
+ (directive
+  (config_file_directive
+   (property)
+   (path_value (string))))
+ (directive
+  (config_file_directive
+   (property)
+   (path_value (string))))
+ (directive
+  (config_file_directive
+   (property)
+   (path_value (string)))))

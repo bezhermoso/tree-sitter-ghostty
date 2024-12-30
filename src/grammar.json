@@ -582,8 +582,25 @@
       ]
     },
     "path_value": {
-      "type": "SYMBOL",
-      "name": "string"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "?"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
     },
     "keybind_directive": {
       "type": "SEQ",
