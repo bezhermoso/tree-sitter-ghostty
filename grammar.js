@@ -179,7 +179,7 @@ function hex_color_seq()  {
 }
 
 function snake_case_seq() {
-  return sep1(token.immediate(word), token.immediate("_"));
+  return seq(word, repeat(seq(token.immediate("_"), token.immediate(word)));
 }
 
 function directive_seq(key, value) {
