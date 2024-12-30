@@ -39,6 +39,7 @@ module.exports = grammar({
     _snake_case_identifier : $ => snake_case_seq(),
 
     property : $ => choice($._kebab_case_identifier),
+
     // Value types can be boolean, string, number, "adjustments", or hex color
     // `palette` values a handled separately
     value: $ => seq(
@@ -58,6 +59,7 @@ module.exports = grammar({
       $.percent_adjustment,
       $.numeric_adjustment,
     ),
+
     string: $ => prec(1, choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
@@ -66,6 +68,14 @@ module.exports = grammar({
         $._raw_value,
       )
     )),
+
+    // The default "string" token disambiguates from (color) by excluding bare strings starting with "#"
+    // This version does not do that.
+    _loose_string: $ => prec(1, choice(
+      seq('"', /[^"]*/, '"'),
+      seq("'", /[^']*/, "'"),
+      seq($._raw_value))),
+
     color: $ => prec(2, hex_color_seq()),
     percent_adjustment: $ => token(
       prec(
@@ -162,9 +172,18 @@ module.exports = grammar({
       optional(
         seq(
           token.immediate(":"),
-          field("argument", alias(anything, $.action_argument)),
+          field("argument", alias($._action_arg_value, $.action_argument)),
         ),
       ),
+    ),
+
+    _action_arg_value: $ => choice(
+      $.boolean,
+      alias(
+        token(prec(2, seq(optional(choice("+", "-")), token.immediate(number)))),
+        $.number
+      ),
+      alias($._loose_string, $.string)
     ),
   },
 });
@@ -179,7 +198,7 @@ function hex_color_seq()  {
 }
 
 function snake_case_seq() {
-  return seq(word, repeat(seq(token.immediate("_"), token.immediate(word)));
+  return seq(word, repeat(seq(token.immediate("_"), token.immediate(word))));
 }
 
 function directive_seq(key, value) {
