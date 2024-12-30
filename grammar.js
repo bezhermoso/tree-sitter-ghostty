@@ -74,7 +74,8 @@ module.exports = grammar({
     _loose_string: $ => prec(1, choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
-      seq($._raw_value))),
+      $._raw_value
+    )),
 
     color: $ => prec(2, hex_color_seq()),
     percent_adjustment: $ => token(

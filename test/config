@@ -74,8 +74,6 @@ keybind = cmd+shift+left=text:\x1b[1;6D
 keybind = cmd+shift+right=text:\x1b[1;6C
 keybind = cmd+shift+up=text:\x01K
 keybind = cmd+shift+down=text:\x01k
-keybind = cmd+t=text:\x01c
-keybind = cmd+d=text:\x01|
 keybind = cmd+shift+d=text:\x01-
 keybind = cmd+w=text:\x01x
 keybind = cmd+l=text:\x01;
@@ -97,6 +95,9 @@ keybind = ctrl+shift+x=jump_to_prompt:1
 # Tab
 keybind = ctrl+shift+[=previous_tab
 keybind = ctrl+shift+]=next_tab
+
+keybind = cmd+t=text:\x01c
+keybind = cmd+d=text:\x01|
 keybind = ctrl+shift+,=move_tab:-1
 keybind = ctrl+shift+.=move_tab:1
 
