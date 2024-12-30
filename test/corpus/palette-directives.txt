@@ -34,3 +34,16 @@ palette = 1=000000
    (palette_value
     (palette_index)
     (color)))))
+
+===============================
+Palette Directive - Empty Value
+===============================
+
+palette =
+
+---
+
+(document 
+ (directive 
+  (palette_directive
+   (property))))

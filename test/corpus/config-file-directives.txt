@@ -44,3 +44,16 @@ config-file = ~/.config/ghostty/config.d/my theme
   (config_file_directive
    (property)
    (path_value (string)))))
+
+===================================
+Config File Directive - Empty Value
+===================================
+
+config-file =
+
+---
+
+(document
+ (directive
+  (config_file_directive
+   (property))))
