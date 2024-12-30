@@ -83,11 +83,8 @@
           }
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "="
-          }
+          "type": "STRING",
+          "value": "="
         },
         {
           "type": "CHOICE",
@@ -117,7 +114,7 @@
     },
     "_snake_case_identifier": {
       "type": "PATTERN",
-      "value": "[a-z\\_]+\\d*"
+      "value": "[a-z\\_]+[0-9]*"
     },
     "property": {
       "type": "CHOICE",
@@ -455,19 +452,24 @@
           }
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "="
-          }
+          "type": "STRING",
+          "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "path_value"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "path_value"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "PATTERN",
@@ -496,16 +498,24 @@
           }
         },
         {
-          "type": "PATTERN",
-          "value": "\\s*=\\s*"
+          "type": "STRING",
+          "value": "="
         },
         {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "keybind_value"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "keybind_value"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "PATTERN",
@@ -771,7 +781,7 @@
                 },
                 {
                   "type": "PATTERN",
-                  "value": "[^>=:]{1}"
+                  "value": "[^>=:\\s]{1}"
                 }
               ]
             }
