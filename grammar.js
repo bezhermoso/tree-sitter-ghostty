@@ -11,7 +11,7 @@ const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
 const word = /[0-9a-z]+/
 
-module.exports = grammar({
+export default grammar({
   name: "ghostty",
 
   rules: {

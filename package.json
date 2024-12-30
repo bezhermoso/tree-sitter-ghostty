@@ -4,6 +4,7 @@
   "description": "Parser for Ghostty configuration files",
   "repository": "github:tree-sitter/tree-sitter-ghostty",
   "license": "MIT",
+  "type": "module",
   "author": {
     "name": "Bez Hermoso",
     "email": "me@bez.dev"
