@@ -36,7 +36,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -58,7 +58,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -70,7 +70,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -82,7 +82,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -94,7 +94,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -106,7 +106,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -118,7 +118,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -129,7 +129,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -140,52 +140,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (modifier_key)
-      (modifier_key)
-      (key)))
-    (keybind_action
-     (action_name)
-     (action_argument)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (modifier_key)
-      (key)))
-    (keybind_action
-     (action_name)
-     (action_argument)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (modifier_key)
-      (key)))
-    (keybind_action
-     (action_name)
-     (action_argument)))))
- (directive
-  (keybind_directive
-   (property)
-   (keybind_value
-    (keybind_trigger
-     (chord
-      (modifier_key)
-      (key)))
-    (keybind_action
-     (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -197,7 +152,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -208,7 +163,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -219,7 +174,7 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -230,7 +185,19 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument (string))))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument (string))))))
  (directive
   (keybind_directive
    (property)
@@ -241,7 +208,40 @@ keybind = alt+left=text:\x1bB
       (key)))
     (keybind_action
      (action_name)
-     (action_argument))))))
+     (action_argument (string))))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument (string))))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument (string))))))
+ (directive
+  (keybind_directive
+   (property)
+   (keybind_value
+    (keybind_trigger
+     (chord
+      (modifier_key)
+      (key)))
+    (keybind_action
+     (action_name)
+     (action_argument (string)))))))
 
 ======
 @towry
@@ -296,6 +296,7 @@ keybind = super+u=scroll_page_up
 # jump_to_prompt=-1, jump_to_prompt=1
 
 ---
+
 ;; https://github.com/towry/dots/blob/2c2ba35526aec0ce3d0f318c2a43a07a890ac1a9/conf/ghostty/config-default-keybind
 (document
  (directive
@@ -349,7 +350,8 @@ keybind = super+u=scroll_page_up
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument
+      (string))))))
  (directive
   (keybind_directive
    (property)
@@ -360,7 +362,8 @@ keybind = super+u=scroll_page_up
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument
+      (string))))))
  (directive
   (keybind_directive
    (property)
@@ -401,7 +404,8 @@ keybind = super+u=scroll_page_up
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument
+      (number))))))
  (directive
   (keybind_directive
    (property)
@@ -412,7 +416,8 @@ keybind = super+u=scroll_page_up
       (key)))
     (keybind_action
      (action_name)
-     (action_argument)))))
+     (action_argument
+      (number))))))
 (comment)
   (directive
    (keybind_directive
@@ -424,7 +429,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -435,7 +441,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -446,7 +453,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -457,7 +465,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -468,7 +477,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -479,7 +489,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -490,7 +501,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -501,7 +513,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -512,7 +525,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
 (comment)
   (directive
    (keybind_directive
@@ -524,7 +538,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -535,7 +550,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -546,7 +562,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -557,7 +574,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
 (comment)
   (directive
    (keybind_directive
@@ -570,7 +588,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -582,7 +601,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -594,7 +614,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -606,7 +627,8 @@ keybind = super+u=scroll_page_up
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -763,6 +785,7 @@ keybind = ctrl+/=text:\x1f
 ---
 
 ;; https://github.com/rockyzhang24/dotfiles/blob/dbc98a8debb05398fb990886ca6de7d9ccb5f104/.config/ghostty/config#L15
+
 (document
  (directive
   (basic_directive
@@ -834,7 +857,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -847,7 +871,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -871,7 +896,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -883,7 +909,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -917,7 +944,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -929,7 +957,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
 (comment)
   (directive
    (keybind_directive
@@ -964,7 +993,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
   (directive
    (keybind_directive
     (property)
@@ -976,7 +1006,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (number))))))
 (comment)
   (directive
    (keybind_directive
@@ -990,7 +1021,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1003,7 +1035,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1015,7 +1048,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1027,7 +1061,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1039,7 +1074,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1051,7 +1087,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1063,7 +1100,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1087,7 +1125,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1099,7 +1138,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1111,7 +1151,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
   (directive
    (keybind_directive
     (property)
@@ -1123,7 +1164,8 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument)))))
+      (action_argument
+       (string))))))
 (comment)
   (directive
    (keybind_directive
@@ -1135,4 +1177,6 @@ keybind = ctrl+/=text:\x1f
        (key)))
      (keybind_action
       (action_name)
-      (action_argument))))))
+      (action_argument
+       (string)))))))
+

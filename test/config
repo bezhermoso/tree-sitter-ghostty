@@ -64,3 +64,40 @@ keybind = all:global:cmd+physical:c+b>s+b=hello:a,10
 keybind = all:global:cmd+physical:up+b>s+b=hello:a,10
 #keybind = cmd+shift+opt+p=hello_world:loudly
 # keybind = unconsumed:cmd+shift+opt+p=hello
+
+
+keybind = alt+3=text:#
+keybind = cmd+r=reload_config
+keybind = cmd+alt+left=text:\x1b[1;5D
+keybind = cmd+alt+right=text:\x1b[1;5C
+keybind = cmd+shift+left=text:\x1b[1;6D
+keybind = cmd+shift+right=text:\x1b[1;6C
+keybind = cmd+shift+up=text:\x01K
+keybind = cmd+shift+down=text:\x01k
+keybind = cmd+shift+d=text:\x01-
+keybind = cmd+w=text:\x01x
+keybind = cmd+l=text:\x01;
+keybind = cmd+comma=text:\x01L
+keybind = cmd+shift+enter=text:\x01z
+keybind = cmd+s=text:\x01s
+keybind = cmd+p=text:\x01F
+keybind = alt+right=text:\x1bF
+keybind = alt+left=text:\x1bB
+
+# Scroll
+keybind = ctrl+shift+d=scroll_page_fractional:0.5
+keybind = ctrl+shift+u=scroll_page_fractional:-0.5
+keybind = ctrl+shift+nine=scroll_to_top
+keybind = ctrl+shift+zero=scroll_to_bottom
+keybind = ctrl+shift+z=jump_to_prompt:-1
+keybind = ctrl+shift+x=jump_to_prompt:1
+
+# Tab
+keybind = ctrl+shift+[=previous_tab
+keybind = ctrl+shift+]=next_tab
+
+keybind = cmd+t=text:\x01c
+keybind = cmd+d=text:\x01|
+keybind = ctrl+shift+,=move_tab:-1
+keybind = ctrl+shift+.=move_tab:1
+

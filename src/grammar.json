@@ -146,11 +146,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PATTERN",
-            "value": "[0-9a-z]+"
-          }
+          "type": "PATTERN",
+          "value": "[0-9a-z]+"
         },
         {
           "type": "REPEAT",
@@ -304,6 +301,58 @@
                 "type": "PATTERN",
                 "value": "[^#\\s]"
               },
+              {
+                "type": "SYMBOL",
+                "name": "_raw_value"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "_loose_string": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\""
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^\"]*"
+              },
+              {
+                "type": "STRING",
+                "value": "\""
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "'"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^']*"
+              },
+              {
+                "type": "STRING",
+                "value": "'"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
               {
                 "type": "SYMBOL",
                 "name": "_raw_value"
@@ -839,11 +888,8 @@
                   "type": "SEQ",
                   "members": [
                     {
-                      "type": "IMMEDIATE_TOKEN",
-                      "content": {
-                        "type": "PATTERN",
-                        "value": "[0-9a-z]+"
-                      }
+                      "type": "PATTERN",
+                      "value": "[0-9a-z]+"
                     },
                     {
                       "type": "REPEAT",
@@ -914,8 +960,8 @@
                   "content": {
                     "type": "ALIAS",
                     "content": {
-                      "type": "PATTERN",
-                      "value": "[^\\r\\n]+"
+                      "type": "SYMBOL",
+                      "name": "_action_arg_value"
                     },
                     "named": true,
                     "value": "action_argument"
@@ -927,6 +973,69 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_action_arg_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "boolean"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 2,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "+"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "-"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "IMMEDIATE_TOKEN",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "[0-9]+(\\.[0-9]+)?"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "named": true,
+          "value": "number"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_loose_string"
+          },
+          "named": true,
+          "value": "string"
         }
       ]
     }
