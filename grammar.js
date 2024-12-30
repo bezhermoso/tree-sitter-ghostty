@@ -35,8 +35,8 @@ module.exports = grammar({
 
     basic_directive: $ => directive_seq($.property, $.value),
 
-    _kebab_case_identifier : $ => sep1(token.immediate(word), token.immediate("-")),
-    _snake_case_identifier : $ => snake_case_seq(),
+    _kebab_case_identifier : _ => sep1(token.immediate(word), token.immediate("-")),
+    _snake_case_identifier : _ => snake_case_seq(),
 
     property : $ => choice($._kebab_case_identifier),
 
@@ -53,8 +53,10 @@ module.exports = grammar({
       )
     ),
 
-    boolean: $ => choice("true", "false"),
-    number: $ => number,
+    boolean: _ => choice("true", "false"),
+
+    number: _ => number,
+
     adjustment: $ => choice(
       $.percent_adjustment,
       $.numeric_adjustment,
@@ -77,8 +79,8 @@ module.exports = grammar({
       $._raw_value
     )),
 
-    color: $ => prec(2, hex_color_seq()),
-    percent_adjustment: $ => token(
+    color: _ => prec(2, hex_color_seq()),
+    percent_adjustment: _ => token(
       prec(
         2,
         seq(
@@ -88,7 +90,7 @@ module.exports = grammar({
         ),
       ),
     ),
-    numeric_adjustment: $ => token(
+    numeric_adjustment: _ => token(
       prec(
         1,
         seq(
@@ -99,7 +101,7 @@ module.exports = grammar({
     ),
     //
     // Fallback. Setting a negative precedence so that more complex (i.e. composite) grammars win.
-    _raw_value: $ => prec(-1, anything),
+    _raw_value: _ => prec(-1, anything),
 
     // `palette` directive
     palette_directive: $ => directive_seq(alias("palette", $.property), $.palette_value),
@@ -189,6 +191,10 @@ module.exports = grammar({
   },
 });
 
+/**
+ * @param {RuleOrLiteral} rule
+ * @param {RuleOrLiteral} separator
+ */
 function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
@@ -202,6 +208,10 @@ function snake_case_seq() {
   return seq(word, repeat(seq(token.immediate("_"), token.immediate(word))));
 }
 
+/**
+ * @param {RuleOrLiteral} key
+ * @param {RuleOrLiteral} value
+ */
 function directive_seq(key, value) {
   return seq(
       field("property", key),
