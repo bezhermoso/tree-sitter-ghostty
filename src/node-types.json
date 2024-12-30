@@ -1,5 +1,10 @@
 [
   {
+    "type": "action_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "adjustment",
     "named": true,
     "fields": {},
@@ -436,6 +441,10 @@
     "named": false
   },
   {
+    "type": "-",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -448,11 +457,11 @@
     "named": false
   },
   {
-    "type": "action_argument",
-    "named": true
+    "type": "_",
+    "named": false
   },
   {
-    "type": "action_name",
+    "type": "action_argument",
     "named": true
   },
   {

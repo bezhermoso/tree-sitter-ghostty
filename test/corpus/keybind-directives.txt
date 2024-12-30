@@ -474,9 +474,9 @@ keybind = ctrl+f10=action
     (keybind_action
      (action_name))))))
 
-==================================
-Keybind Directive - Clear Keybinds
-==================================
+=================================
+Keybind Directive - Clear Keyword
+=================================
 
 keybind = clear
 
@@ -508,3 +508,17 @@ keybind = "ctrl+a=foo:bar"
    (property)
    (keybind_value
     (string)))))
+
+===============================
+Keybind Directive - Empty Value
+===============================
+
+keybind =
+
+---
+
+(document
+ (directive
+  (keybind_directive
+   (property))))
+

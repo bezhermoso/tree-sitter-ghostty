@@ -2,7 +2,22 @@
 Basic Directive - Raw Value
 ===========================
 
-font = Berkeley Mono
+font = TX-02
+
+---
+
+(document 
+ (directive 
+  (basic_directive
+   (property)
+   (value
+    (string)))))
+
+=====================================
+Basic Directive - Numbers in Property
+=====================================
+
+x11-instance-name = ghostty
 
 ---
 
@@ -30,8 +45,8 @@ font =
 Basic Directive - Quoted Strings
 ================================
 
-font = "Berkeley Mono"
-font = 'Berkeley Mono'
+font = "TX-02"
+font = 'TX-02'
 
 ---
 
