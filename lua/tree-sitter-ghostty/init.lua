@@ -9,7 +9,7 @@ M.register_parser = function()
     -- Register the plugin path as a tree-sitter parser to nvim-treesitter.
     -- This is not required, but it allows nvim-treesitter to manage it e.g. :TS{Install,Update} ghostty
     local file = debug.getinfo(1).source:match("@(.*/)")
-    local plugin_dir = vim.fn.fnamemodify(file, ":p:h:h")
+    local plugin_dir = vim.fn.fnamemodify(file, ":p:h:h:h")
 
     --- @type ParserInfo[]
     local parser_configs
