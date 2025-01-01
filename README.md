@@ -84,10 +84,15 @@ comment-tokens = "#"
 
 [[grammar]]
 name = "ghostty"
-source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty", rev = "main" }
+source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty", rev = "e1a73c6231b9d760cd01204f9467d82a9d46bcb9" }
 ```
 
-2. In your `runtime` directory, symlink `./queries/ghostty/highlights.scm` to `grammars/sources/ghostty/queries/highlights.scm`
+2. Symlink the `highlights.scm` file. Assuming your config directory is `~/.config/helix`:
+```bash
+mkdir -p ~/.config/helix/runtime/queries/ghostty
+cd ~/.config/helix/runtime/queries/ghostty/
+ln -s ../../grammars/sources/ghostty/queries/ghostty/highlights.scm .
+```
 
 [Ghostty]: https://ghostty.org
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
