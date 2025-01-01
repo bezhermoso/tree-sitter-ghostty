@@ -78,7 +78,7 @@ expected paths. You can add this line to the top of your config file if its file
 name = "ghostty"
 scope = "source.ghostty"
 injection-regex = "ghostty"
-file-types = [{ glob = "*ghostty/config" }]
+file-types = [{ glob = "*ghostty/config*" }, { glob = "*ghostty/themes/*" }]
 grammar = "ghostty"
 comment-tokens = "#"
 
