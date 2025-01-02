@@ -63,8 +63,8 @@ module.exports = grammar({
     ),
 
     string: $ => prec(1, choice(
-      seq('"', /[^"]*/, '"'),
-      seq("'", /[^']*/, "'"),
+      seq('"', /[^"\r\n]*/, '"'),
+      seq("'", /[^'\r\n]*/, "'"),
       seq(
         /[^#\s]/,
         $._raw_value,

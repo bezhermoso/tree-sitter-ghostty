@@ -269,7 +269,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "[^\"]*"
+                "value": "[^\"\\r\\n]*"
               },
               {
                 "type": "STRING",
@@ -286,7 +286,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "[^']*"
+                "value": "[^'\\r\\n]*"
               },
               {
                 "type": "STRING",
