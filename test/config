@@ -101,3 +101,4 @@ keybind = cmd+d=text:\x01|
 keybind = ctrl+shift+,=move_tab:-1
 keybind = ctrl+shift+.=move_tab:1
 
+theme = light:tinted-theming/base24-github,dark:tinted-theming/base16-gruvbox-dark-hard

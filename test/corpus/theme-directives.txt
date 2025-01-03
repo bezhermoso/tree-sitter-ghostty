@@ -1,0 +1,91 @@
+=======================
+Theme Directive - Basic
+=======================
+
+theme = "Argonaut"
+
+---
+
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value (string)))))
+
+=================================
+Theme Directive - Unquoted String
+=================================
+
+theme = Apple Classic
+
+---
+
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value (string)))))
+
+===================================
+Theme Directive - Light and Dark #1
+===================================
+
+theme = light:rose-pine-dawn,dark:rose-pine
+
+---
+
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value
+     (theme_variant (string))
+     (theme_variant (string))))))
+
+===================================
+Theme Directive - Light and Dark #2
+===================================
+
+theme = light:Apple Classic,dark:Apple Classic
+
+---
+
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value
+     (theme_variant (string))
+     (theme_variant (string))))))
+
+===================================
+Theme Directive - Light and Dark #3
+===================================
+
+theme = light:tinted-theming/base24-github,dark:tinted-theming/base16-gruvbox-dark-hard
+
+---
+
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value
+     (theme_variant (string))
+     (theme_variant (string))))))
+
+===================================
+Theme Directive - Light and Dark #4
+===================================
+
+theme = "light:tinted-theming/base24-github,dark:tinted-theming/base16-gruvbox-dark-hard"
+
+---
+
+;; We'll interpret this as string for now.
+(document
+ (directive
+  (theme_directive
+   (property)
+   (theme_value
+     (string)))))
