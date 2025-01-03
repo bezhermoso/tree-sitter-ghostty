@@ -59,4 +59,5 @@
 [
  (key_qualifier)
  (keybind_modifier)
+ (theme_variant)
 ] @attribute
