@@ -28,6 +28,7 @@ module.exports = grammar({
       )),
     directive: $ => choice(
       $.basic_directive,
+      $.theme_directive,
       $.palette_directive,
       $.config_file_directive,
       $.keybind_directive,
@@ -191,6 +192,20 @@ module.exports = grammar({
       ),
       alias($._loose_string, $.string)
     ),
+
+    // `palette` directive
+    theme_directive: $ => directive_seq(alias("theme", $.property), $.theme_value),
+
+    theme_value: $ => choice(
+      sep1($.theme_variant, ","),
+      $.string,
+    ),
+
+    theme_variant: $ =>  seq(
+      choice("light", "dark"),
+      token.immediate(":"),
+      alias(/[^\r\n,]*/, $.string),
+    )
   },
 });
 

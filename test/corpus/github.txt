@@ -819,9 +819,9 @@ keybind = ctrl+/=text:\x1f
    (value
     (string))))
  (directive
-  (basic_directive
+  (theme_directive
    (property)
-   (value
+   (theme_value
     (string))))
  (directive
   (basic_directive
