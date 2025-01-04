@@ -1,52 +1,67 @@
 ============================
-Config File Directive - File
+Path Directive - File
 ============================
 
 config-file = ~/.config/ghostty/config.d/theme
+gtk-custom-css = ~/.config/ghostty/config.d/theme
+custom-shader = ~/.config/ghostty/config.d/theme
 
 ---
 
 (document
  (directive
-  (config_file_directive
-   (property)
-   (path_value (string)))))
-
-==============================
-Config File Directive - Quoted
-==============================
-
-config-file = "~/.config/ghostty/config.d/theme"
-config-file = '~/.config/ghostty/config.d/theme'
-
----
-
-(document
- (directive
-  (config_file_directive
+  (path_directive
    (property)
    (path_value (string))))
  (directive
-  (config_file_directive
+  (path_directive
+   (property)
+   (path_value (string))))
+ (directive
+  (path_directive
    (property)
    (path_value (string)))))
 
-===================================
-Config File Directive - With Spaces
-===================================
+==============================
+Path Directive - Quoted
+==============================
 
-config-file = ~/.config/ghostty/config.d/my theme
+config-file = "~/.config/ghostty/config.d/theme"
+custom-shader = '~/.config/ghostty/config.d/shader.glsl'
 
 ---
 
 (document
  (directive
-  (config_file_directive
+  (path_directive
+   (property)
+   (path_value (string))))
+ (directive
+  (path_directive
    (property)
    (path_value (string)))))
 
 ===================================
-Config File Directive - Empty Value
+Path Directive - With Spaces
+===================================
+
+config-file = ~/.config/ghostty/config.d/my theme
+custom-shader = ~/.config/ghostty/config.d/my shader.glsl
+
+---
+
+(document
+ (directive
+  (path_directive
+   (property)
+   (path_value (string))))
+ (directive
+  (path_directive
+   (property)
+   (path_value (string)))))
+
+===================================
+Path Directive - Empty Value
 ===================================
 
 config-file =
@@ -55,30 +70,30 @@ config-file =
 
 (document
  (directive
-  (config_file_directive
+  (path_directive
    (property))))
 
 =====================================
-Config File Directive - Optional File
+Path Directive - Optional File
 =====================================
 
 config-file = ?~/work/ghostty/config
-config-file = ?"~/work/ghostty/config"
-config-file = "?oddly/named/dir/config"
+gtk-custom-css = ?"~/work/ghostty/style.css"
+custom-shader = "?oddly/named/dir/config"
 
 ---
 
 (document
  (directive
-  (config_file_directive
+  (path_directive
    (property)
    (path_value (string))))
  (directive
-  (config_file_directive
+  (path_directive
    (property)
    (path_value (string))))
  (directive
-  (config_file_directive
+  (path_directive
    (property)
    (path_value (string)))))
 

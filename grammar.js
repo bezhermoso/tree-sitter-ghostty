@@ -30,7 +30,7 @@ module.exports = grammar({
       $.basic_directive,
       $.theme_directive,
       $.palette_directive,
-      $.config_file_directive,
+      $.path_directive,
       $.keybind_directive,
     ),
 
@@ -67,7 +67,7 @@ module.exports = grammar({
       seq('"', /[^"\r\n]*/, '"'),
       seq("'", /[^'\r\n]*/, "'"),
       seq(
-        /[^#\s]/,
+        /[^#\s\?]/,
         $._raw_value,
       )
     )),
@@ -113,8 +113,9 @@ module.exports = grammar({
       $.color
     ),
 
-    // `config-file` directive
-    config_file_directive: $ => directive_seq(alias("config-file", $.property), $.path_value),
+    // directives that take files as input, it's impossible to distinguish syntactically so we must list them out manually
+    path_property: $ => choice("config-file", "gtk-custom-css", "custom-shader"),
+    path_directive: $ => directive_seq(alias($.path_property, $.property), $.path_value),
     path_value: $ => seq(
       optional("?"),
       $.string
