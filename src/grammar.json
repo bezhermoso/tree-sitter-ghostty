@@ -67,7 +67,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "config_file_directive"
+          "name": "path_directive"
         },
         {
           "type": "SYMBOL",
@@ -303,7 +303,7 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^#\\s]"
+                "value": "[^#\\s\\?]"
               },
               {
                 "type": "SYMBOL",
@@ -543,7 +543,24 @@
         }
       ]
     },
-    "config_file_directive": {
+    "path_property": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "config-file"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-custom-css"
+        },
+        {
+          "type": "STRING",
+          "value": "custom-shader"
+        }
+      ]
+    },
+    "path_directive": {
       "type": "SEQ",
       "members": [
         {
@@ -552,8 +569,8 @@
           "content": {
             "type": "ALIAS",
             "content": {
-              "type": "STRING",
-              "value": "config-file"
+              "type": "SYMBOL",
+              "name": "path_property"
             },
             "named": true,
             "value": "property"

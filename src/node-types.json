@@ -102,32 +102,6 @@
     "fields": {}
   },
   {
-    "type": "config_file_directive",
-    "named": true,
-    "fields": {
-      "property": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "path_value",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "directive",
     "named": true,
     "fields": {},
@@ -140,15 +114,15 @@
           "named": true
         },
         {
-          "type": "config_file_directive",
-          "named": true
-        },
-        {
           "type": "keybind_directive",
           "named": true
         },
         {
           "type": "palette_directive",
+          "named": true
+        },
+        {
+          "type": "path_directive",
           "named": true
         },
         {
@@ -396,6 +370,32 @@
     }
   },
   {
+    "type": "path_directive",
+    "named": true,
+    "fields": {
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "path_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "path_value",
     "named": true,
     "fields": {},
@@ -580,11 +580,19 @@
     "named": true
   },
   {
+    "type": "config-file",
+    "named": false
+  },
+  {
     "type": "control",
     "named": false
   },
   {
     "type": "ctrl",
+    "named": false
+  },
+  {
+    "type": "custom-shader",
     "named": false
   },
   {
@@ -597,6 +605,10 @@
   },
   {
     "type": "global",
+    "named": false
+  },
+  {
+    "type": "gtk-custom-css",
     "named": false
   },
   {

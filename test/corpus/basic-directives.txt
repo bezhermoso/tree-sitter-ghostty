@@ -204,5 +204,3 @@ macos-icon-screen-color = ff0000
    (property)
    (value
     (color)))))
-
-
