@@ -214,6 +214,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "tuple"
+            },
+            {
+              "type": "SYMBOL",
               "name": "adjustment"
             },
             {
@@ -225,6 +229,34 @@
               "name": "string"
             }
           ]
+        }
+      ]
+    },
+    "tuple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "first",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ","
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "second",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
         }
       ]
     },

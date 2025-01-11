@@ -481,6 +481,32 @@
     }
   },
   {
+    "type": "tuple",
+    "named": true,
+    "fields": {
+      "first": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "second": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "value",
     "named": true,
     "fields": {},
@@ -506,6 +532,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
           "named": true
         }
       ]
