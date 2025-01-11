@@ -38,7 +38,7 @@
         - [x] Special keys (e.g. `tab`, `space`, `up`)
 - [x] Tests
 - [x] Capture highlight groups
-- [ ] Stable release
+- [x] Stable release
     - [ ] Contribute queries to [nvim-treesitter] (No longer accepting experimental parsers)
 
 
