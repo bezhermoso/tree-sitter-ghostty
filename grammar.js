@@ -48,10 +48,18 @@ module.exports = grammar({
       choice(
         $.boolean,
         $.number,
+        $.tuple,
         $.adjustment,
         $.color,
         $.string,
       )
+    ),
+
+    // Used by window-padding-{x,y}. Tuples only supports numbers for now.
+    tuple: $ => seq(
+      field("left", $.number),
+      token.immediate(","),
+      field("right", $.number),
     ),
 
     boolean: _ => choice("true", "false"),

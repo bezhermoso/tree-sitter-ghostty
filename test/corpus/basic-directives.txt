@@ -204,3 +204,28 @@ macos-icon-screen-color = ff0000
    (property)
    (value
     (color)))))
+
+=======================
+Basic Directive - Tuple
+=======================
+
+window-padding-x = 10,20
+window-padding-y = 1,2
+
+---
+
+(document
+ (directive
+  (basic_directive
+   (property)
+   (value
+    (tuple
+     (number)
+     (number)))))
+ (directive
+  (basic_directive
+   (property)
+   (value
+    (tuple
+     (number)
+     (number))))))

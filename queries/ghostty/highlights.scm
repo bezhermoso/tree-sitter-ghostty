@@ -22,6 +22,10 @@
 (color "#" @punctuation.delimiter.special
   (#eq? @punctuation.delimiter.special "#"))
 
+; (tuple)
+(tuple "," @punctuation.delimiter.special
+       (#eq? @punctuation.delimiter.special ","))
+
 ; `palette`
 (palette_index) @variable.member
 
