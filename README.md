@@ -88,3 +88,8 @@ source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty" , rev = "84
 ```
 
 2. Download the ghostty [highlight queries from upstream](https://github.com/helix-editor/helix/blob/master/runtime/queries/ghostty/highlights.scm) and install them into the Helix runtime directory (located in config): `runtime/queries/ghostty/highlights.scm`
+
+3. Build and fetch the grammar
+```
+    hx -g fetch && hx -g build
+```
