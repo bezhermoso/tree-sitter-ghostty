@@ -70,23 +70,21 @@ expected paths. You can add this line to the top of your config file if its file
 
 ## Helix
 
+This grammar is now included in upstream Helix: https://github.com/helix-editor/helix, however if you do not current have highlighting, you can set it up manually using the following steps:
+
 1. Add this to your `languages.toml`
 
 ```toml
 [[language]]
 name = "ghostty"
 scope = "source.ghostty"
-injection-regex = "ghostty"
-file-types = [{ glob = "*ghostty/config" }]
-grammar = "ghostty"
+file-types = [{ glob = "ghostty/config" }]
 comment-tokens = "#"
+indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "ghostty"
-source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty", rev = "main" }
+source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty" , rev = "8438a93b44367e962b2ea3a3b6511885bebd196a" }
 ```
 
-2. In your `runtime` directory, symlink `./queries/ghostty/highlights.scm` to `grammars/sources/ghostty/queries/highlights.scm`
-
-[Ghostty]: https://ghostty.org
-[nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+2. Download the ghostty [highlight queries from upstream](https://github.com/helix-editor/helix/blob/master/runtime/queries/ghostty/highlights.scm) and install them into the Helix runtime directory (located in config): `runtime/queries/ghostty/highlights.scm`
