@@ -56,7 +56,7 @@ Add this:
 ```
 
 > [!NOTE]
-> Having [nvim-treesitter] installed is not required. However if you have it installed, this plugin will attempt to register
+> [nvim-treesitter] is not required. However if you have it installed, this plugin will attempt to register
 > itself as a parser so that `nvim-treesitter` can manage it e.g. `:TSInstall! ghostty`.
 
 Installing this as a plugin should automatically enable syntax highlighting for Ghostty configuration files located in
@@ -93,3 +93,5 @@ source = { git = "https://github.com/bezhermoso/tree-sitter-ghostty" , rev = "84
 ```
     hx -g fetch && hx -g build
 ```
+
+[nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
