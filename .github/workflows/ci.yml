@@ -38,9 +38,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v1
+        with:
+          tree-sitter-ref: v0.24.3
       - name: Run tests
         uses: tree-sitter/parser-test-action@v2
         with:
+          abi-version: "14"
           test-rust: ${{runner.os == 'Linux'}}
           test-go: ${{runner.os == 'Windows'}}
           test-swift: ${{runner.os == 'macOS'}}

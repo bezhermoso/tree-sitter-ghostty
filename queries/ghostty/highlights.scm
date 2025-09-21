@@ -32,6 +32,11 @@
 (palette_value "=" @operator
   (#eq? @operator "="))
 
+; env
+(env_var_name) @variable.member
+(env_value "=" @operator
+           (#eq? @operator "="))
+
 ; `path directives`
 (path_directive (property) @keyword.import)
 (path_directive (path_value) @string.special.path)
@@ -64,4 +69,5 @@
  (key_qualifier)
  (keybind_modifier)
  (theme_variant)
+ (command_modifier)
 ] @attribute

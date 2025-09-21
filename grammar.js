@@ -10,6 +10,7 @@ const newline = /\r?\n/;
 const anything = /[^\r\n]+/;
 const number = /[0-9]+(\.[0-9]+)?/;
 const word = /[0-9a-z]+/
+const word_case_insensitive = /[0-9a-z]+/i
 
 module.exports = grammar({
   name: "ghostty",
@@ -32,12 +33,15 @@ module.exports = grammar({
       $.palette_directive,
       $.path_directive,
       $.keybind_directive,
+      $.env_directive,
+      $.command_directive,
     ),
 
     basic_directive: $ => directive_seq($.property, $.value),
 
     _kebab_case_identifier : _ => sep1(token.immediate(word), token.immediate("-")),
     _snake_case_identifier : _ => snake_case_seq(),
+    _snake_case_insensitive_identifier : _ => snake_case_insensitive_seq(),
 
     property : $ => choice($._kebab_case_identifier),
 
@@ -122,7 +126,7 @@ module.exports = grammar({
     ),
 
     // directives that take files as input, it's impossible to distinguish syntactically so we must list them out manually
-    path_property: $ => choice("config-file", "gtk-custom-css", "custom-shader"),
+    path_property: $ => choice("config-file", "gtk-custom-css", "custom-shader", "background-image"),
     path_directive: $ => directive_seq(alias($.path_property, $.property), $.path_value),
     path_value: $ => seq(
       optional("?"),
@@ -214,7 +218,34 @@ module.exports = grammar({
       choice("light", "dark"),
       token.immediate(":"),
       alias(/[^\r\n,]*/, $.string),
-    )
+    ),
+
+    env_directive: $ => directive_seq(alias("env", $.property), $.env_value),
+
+    env_value: $ => seq($.env_var_name, token.immediate("="), optional($.env_var_value)),
+
+    env_var_name: $ => $._snake_case_insensitive_identifier,
+    env_var_value: $ => $.string,
+
+
+    command_directive: $ => directive_seq(alias(choice("command", "initial-command"), $.property), $.command_value),
+
+    command_value: $ => choice(
+      $.string,
+      seq(
+        optional(field("modifier", $.command_modifier)),
+        $.string
+      )
+    ),
+
+    command_modifier: $ => seq(
+      field("modifier",
+        choice(
+          "direct", "shell"
+        ),
+      ),
+      token.immediate(":"),
+    ),
   },
 });
 
@@ -233,6 +264,10 @@ function hex_color_seq()  {
 
 function snake_case_seq() {
   return seq(word, repeat(seq(token.immediate("_"), token.immediate(word))));
+}
+
+function snake_case_insensitive_seq() {
+  return seq(word_case_insensitive, repeat(seq(token.immediate("_"), token.immediate(word_case_insensitive))));
 }
 
 /**

@@ -72,6 +72,14 @@
         {
           "type": "SYMBOL",
           "name": "keybind_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "env_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command_directive"
         }
       ]
     },
@@ -177,6 +185,39 @@
         }
       ]
     },
+    "_snake_case_insensitive_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[0-9a-z]+",
+          "flags": "i"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "_"
+                }
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[0-9a-z]+",
+                  "flags": "i"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
     "property": {
       "type": "CHOICE",
       "members": [
@@ -237,7 +278,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "first",
+          "name": "left",
           "content": {
             "type": "SYMBOL",
             "name": "number"
@@ -252,7 +293,7 @@
         },
         {
           "type": "FIELD",
-          "name": "second",
+          "name": "right",
           "content": {
             "type": "SYMBOL",
             "name": "number"
@@ -589,6 +630,10 @@
         {
           "type": "STRING",
           "value": "custom-shader"
+        },
+        {
+          "type": "STRING",
+          "value": "background-image"
         }
       ]
     },
@@ -1211,6 +1256,198 @@
           },
           "named": true,
           "value": "string"
+        }
+      ]
+    },
+    "env_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "property",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "env"
+            },
+            "named": true,
+            "value": "property"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "env_value"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "env_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "env_var_name"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "env_var_value"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "env_var_name": {
+      "type": "SYMBOL",
+      "name": "_snake_case_insensitive_identifier"
+    },
+    "env_var_value": {
+      "type": "SYMBOL",
+      "name": "string"
+    },
+    "command_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "property",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "command"
+                },
+                {
+                  "type": "STRING",
+                  "value": "initial-command"
+                }
+              ]
+            },
+            "named": true,
+            "value": "property"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "command_value"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "command_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "modifier",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "command_modifier"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "string"
+            }
+          ]
+        }
+      ]
+    },
+    "command_modifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "modifier",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "direct"
+              },
+              {
+                "type": "STRING",
+                "value": "shell"
+              }
+            ]
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
         }
       ]
     }

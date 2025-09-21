@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
@@ -7,7 +7,7 @@ let package = Package(
         .library(name: "TreeSitterGhostty", targets: ["TreeSitterGhostty"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ChimeHQ/SwiftTreeSitter", from: "0.8.0"),
+        .package(url: "https://github.com/ChimeHQ/SwiftTreeSitter", exact: "0.8.0"),
     ],
     targets: [
         .target(
