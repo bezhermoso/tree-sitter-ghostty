@@ -64,4 +64,5 @@
  (key_qualifier)
  (keybind_modifier)
  (theme_variant)
+ (command_modifier)
 ] @attribute
