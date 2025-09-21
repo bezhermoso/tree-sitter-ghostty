@@ -11,11 +11,11 @@ env = foo_bar_baz=foo
  (directive 
   (env_directive
    (property)
-   (env_value (env_var_name (string)) (env_var_value (string)))))
+   (env_value (env_var_name) (env_var_value (string)))))
  (directive 
   (env_directive
    (property)
-   (env_value (env_var_name (string)) (env_var_value (string))))))
+   (env_value (env_var_name) (env_var_value (string))))))
 
 
 ===========================
@@ -31,11 +31,11 @@ env = FOO_BAR_BAZ=foo
  (directive 
   (env_directive
    (property)
-   (env_value (env_var_name (string)) (env_var_value (string)))))
+   (env_value (env_var_name) (env_var_value (string)))))
  (directive 
   (env_directive
    (property)
-   (env_value (env_var_name (string)) (env_var_value (string))))))
+   (env_value (env_var_name) (env_var_value (string))))))
 
 
 ==========================
@@ -52,12 +52,12 @@ env = FOO_BAR_BAZ=
   (env_directive
     (property)
     (env_value
-    (env_var_name (string)))))
+    (env_var_name))))
  (directive 
   (env_directive
     (property)
     (env_value
-    (env_var_name (string))))))
+    (env_var_name)))))
 
 
 =====================
@@ -75,7 +75,7 @@ env = BAR=baz
   (env_directive
     (property)
     (env_value
-    (env_var_name (string)) (env_var_value (string)))))
+    (env_var_name) (env_var_value (string)))))
  (directive 
   (env_directive
     (property)))
@@ -83,5 +83,5 @@ env = BAR=baz
   (env_directive
     (property)
     (env_value
-    (env_var_name (string)) (env_var_value (string))))))
+    (env_var_name) (env_var_value (string))))))
 

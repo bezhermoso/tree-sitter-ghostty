@@ -224,7 +224,7 @@ module.exports = grammar({
 
     env_value: $ => seq($.env_var_name, token.immediate("="), optional($.env_var_value)),
 
-    env_var_name: $ => alias($._snake_case_insensitive_identifier, $.string),
+    env_var_name: $ => $._snake_case_insensitive_identifier,
     env_var_value: $ => $.string,
 
 
