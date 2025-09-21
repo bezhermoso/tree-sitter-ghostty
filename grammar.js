@@ -34,6 +34,7 @@ module.exports = grammar({
       $.path_directive,
       $.keybind_directive,
       $.env_directive,
+      $.command_directive,
     ),
 
     basic_directive: $ => directive_seq($.property, $.value),
@@ -224,7 +225,27 @@ module.exports = grammar({
     env_value: $ => seq($.env_var_name, token.immediate("="), optional($.env_var_value)),
 
     env_var_name: $ => alias($._snake_case_insensitive_identifier, $.string),
-    env_var_value: $ => $.string
+    env_var_value: $ => $.string,
+
+
+    command_directive: $ => directive_seq(alias(choice("command", "initial-command"), $.property), $.command_value),
+
+    command_value: $ => choice(
+      $.string,
+      seq(
+        optional(field("modifier", $.command_modifier)),
+        $.string
+      )
+    ),
+
+    command_modifier: $ => seq(
+      field("modifier",
+        choice(
+          "direct", "shell"
+        ),
+      ),
+      token.immediate(":"),
+    ),
   },
 });
 

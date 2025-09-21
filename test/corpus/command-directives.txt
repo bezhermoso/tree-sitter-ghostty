@@ -1,0 +1,37 @@
+===========================
+Command Directive - Basic
+===========================
+
+command = nvim
+command = cmd -w --args
+initial-command = nvim
+initial-command = cmd -w --args
+
+---
+
+(document 
+ (directive (command_directive (property) (command_value (string))))
+ (directive (command_directive (property) (command_value (string))))
+ (directive (command_directive (property) (command_value (string))))
+ (directive (command_directive (property) (command_value (string))))
+ )
+
+
+===========================
+Command Directive - With Modifier
+===========================
+
+command = direct:nvim
+command = shell:cmd -w --args
+initial-command = shell:nvim
+initial-command = direct:cmd -w --args
+
+---
+
+(document 
+ (directive (command_directive (property) (command_value (command_modifier) (string))))
+ (directive (command_directive (property) (command_value (command_modifier) (string))))
+ (directive (command_directive (property) (command_value (command_modifier) (string))))
+ (directive (command_directive (property) (command_value (command_modifier) (string))))
+ )
+
