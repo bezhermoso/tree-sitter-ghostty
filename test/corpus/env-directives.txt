@@ -1,0 +1,87 @@
+===========================
+Env Directive - Basic
+===========================
+
+env = foo=bar
+env = foo_bar_baz=foo
+
+---
+
+(document 
+ (directive 
+  (env_directive
+   (property)
+   (env_value (env_var_name (string)) (env_var_value (string)))))
+ (directive 
+  (env_directive
+   (property)
+   (env_value (env_var_name (string)) (env_var_value (string))))))
+
+
+===========================
+Env Directive - Uppercase
+===========================
+
+env = FOO=bar
+env = FOO_BAR_BAZ=foo
+
+---
+
+(document 
+ (directive 
+  (env_directive
+   (property)
+   (env_value (env_var_name (string)) (env_var_value (string)))))
+ (directive 
+  (env_directive
+   (property)
+   (env_value (env_var_name (string)) (env_var_value (string))))))
+
+
+==========================
+Env Directive - Empty Vars
+==========================
+
+env = FOO=
+env = FOO_BAR_BAZ=
+
+---
+
+(document 
+ (directive 
+  (env_directive
+    (property)
+    (env_value
+    (env_var_name (string)))))
+ (directive 
+  (env_directive
+    (property)
+    (env_value
+    (env_var_name (string))))))
+
+
+=====================
+Env Directive - Empty
+=====================
+
+env = FOO=bar
+env = 
+env = BAR=baz
+
+---
+
+(document 
+ (directive 
+  (env_directive
+    (property)
+    (env_value
+    (env_var_name (string)) (env_var_value (string)))))
+ (directive 
+  (env_directive
+    (property)))
+ (directive 
+  (env_directive
+    (property)
+    (env_value
+    (env_var_name (string)) (env_var_value (string))))))
+
