@@ -5,10 +5,15 @@ Path Directive - File
 config-file = ~/.config/ghostty/config.d/theme
 gtk-custom-css = ~/.config/ghostty/config.d/theme
 custom-shader = ~/.config/ghostty/config.d/theme
+background-image = ~/.config/ghostty/config.d/ghostty.png
 
 ---
 
 (document
+ (directive
+  (path_directive
+   (property)
+   (path_value (string))))
  (directive
   (path_directive
    (property)
@@ -28,10 +33,15 @@ Path Directive - Quoted
 
 config-file = "~/.config/ghostty/config.d/theme"
 custom-shader = '~/.config/ghostty/config.d/shader.glsl'
+background-image = "~/.config/ghostty/config.d/ghostty.png"
 
 ---
 
 (document
+ (directive
+  (path_directive
+   (property)
+   (path_value (string))))
  (directive
   (path_directive
    (property)
@@ -47,10 +57,15 @@ Path Directive - With Spaces
 
 config-file = ~/.config/ghostty/config.d/my theme
 custom-shader = ~/.config/ghostty/config.d/my shader.glsl
+background-image = ~/.config/ghostty/config.d/my ghostty bg.png
 
 ---
 
 (document
+ (directive
+  (path_directive
+   (property)
+   (path_value (string))))
  (directive
   (path_directive
    (property)
@@ -80,10 +95,15 @@ Path Directive - Optional File
 config-file = ?~/work/ghostty/config
 gtk-custom-css = ?"~/work/ghostty/style.css"
 custom-shader = "?oddly/named/dir/config"
+background-image = "?oddly/named/dir/bg.png"
 
 ---
 
 (document
+ (directive
+  (path_directive
+   (property)
+   (path_value (string))))
  (directive
   (path_directive
    (property)

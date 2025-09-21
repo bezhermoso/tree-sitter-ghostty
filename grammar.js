@@ -122,7 +122,7 @@ module.exports = grammar({
     ),
 
     // directives that take files as input, it's impossible to distinguish syntactically so we must list them out manually
-    path_property: $ => choice("config-file", "gtk-custom-css", "custom-shader"),
+    path_property: $ => choice("config-file", "gtk-custom-css", "custom-shader", "background-image"),
     path_directive: $ => directive_seq(alias($.path_property, $.property), $.path_value),
     path_value: $ => seq(
       optional("?"),
