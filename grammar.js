@@ -42,7 +42,7 @@ module.exports = grammar({
     _kebab_case_identifier : _ => sep1(token.immediate(word), token.immediate("-")),
     _snake_case_identifier : _ => snake_case_seq(),
     _snake_case_insensitive_identifier : _ => snake_case_insensitive_seq(),
-    _key_table_identifier : _ => token(/[^\/=+>]+/),
+    _key_table_identifier : _ => token(/[^\/=+>:\s"']+/),
 
     property : $ => choice($._kebab_case_identifier),
 
