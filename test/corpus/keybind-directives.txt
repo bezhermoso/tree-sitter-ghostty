@@ -641,7 +641,6 @@ Keybind Directive - Key Tables
 ==================================
 
 keybind = vim/cmd+comma=last_tab
-keybind = arg/cmd+comma=last_tab
 keybind = test_01/cmd+comma=last_tab
 
 
@@ -652,9 +651,9 @@ keybind = test_01/cmd+comma=last_tab
   (keybind_directive
    (property)
    (keybind_value
+    (keybind_table)
     (keybind_trigger
      (chord
-      (modifier_key)
       (modifier_key)
       (key)))
     (keybind_action
@@ -663,10 +662,10 @@ keybind = test_01/cmd+comma=last_tab
   (keybind_directive
    (property)
    (keybind_value
+    (keybind_table)
     (keybind_trigger
      (chord
       (modifier_key)
       (key)))
     (keybind_action
      (action_name))))))
-

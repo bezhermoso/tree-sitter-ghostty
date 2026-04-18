@@ -414,6 +414,11 @@
     }
   },
   {
+    "type": "keybind_table",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "keybind_trigger",
     "named": true,
     "fields": {},
@@ -459,6 +464,10 @@
       "types": [
         {
           "type": "keybind_modifier",
+          "named": true
+        },
+        {
+          "type": "keybind_table",
           "named": true
         },
         {
@@ -712,6 +721,10 @@
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {

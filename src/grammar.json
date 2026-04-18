@@ -218,6 +218,13 @@
         }
       ]
     },
+    "_key_table_identifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\/=+>:\\s\"']+"
+      }
+    },
     "property": {
       "type": "CHOICE",
       "members": [
@@ -760,6 +767,18 @@
               "type": "CHOICE",
               "members": [
                 {
+                  "type": "SYMBOL",
+                  "name": "keybind_table"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
                   "type": "REPEAT",
                   "content": {
                     "type": "SYMBOL",
@@ -795,6 +814,26 @@
               }
             }
           ]
+        }
+      ]
+    },
+    "keybind_table": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "table",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_key_table_identifier"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "/"
+          }
         }
       ]
     },
@@ -1466,5 +1505,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
