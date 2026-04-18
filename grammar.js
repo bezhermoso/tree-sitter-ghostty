@@ -42,6 +42,7 @@ module.exports = grammar({
     _kebab_case_identifier : _ => sep1(token.immediate(word), token.immediate("-")),
     _snake_case_identifier : _ => snake_case_seq(),
     _snake_case_insensitive_identifier : _ => snake_case_insensitive_seq(),
+    _key_table_identifier : _ => token(/[^\/=+>]+/),
 
     property : $ => choice($._kebab_case_identifier),
 
@@ -141,11 +142,18 @@ module.exports = grammar({
       $.string,
       "clear",
       seq(
+        optional($.keybind_table),
         optional(repeat($.keybind_modifier)),
         field("trigger", $.keybind_trigger),
         token.immediate("="),
         field("action", $.keybind_action),
       ),
+    ),
+
+    // Key table for the keybind
+    keybind_table: $ => seq(
+      field("table", $._key_table_identifier),
+      token.immediate("/")
     ),
 
     // Modifier for the entire keybind
