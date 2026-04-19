@@ -138,22 +138,42 @@ module.exports = grammar({
     keybind_directive: $ => directive_seq(alias("keybind", $.property), $.keybind_value),
 
     // The overall syntax for keybind values
+    //
+    chained_keybind_action: $ => seq(
+      field("chain_operator", seq(
+        "chain",
+        token.immediate("=")
+      )),
+      $.keybind_action,
+    ),
+
     keybind_value: $ => choice(
       $.string,
       "clear",
-      seq(
-        optional($.keybind_table),
-        optional(repeat($.keybind_modifier)),
-        field("trigger", $.keybind_trigger),
-        token.immediate("="),
-        field("action", $.keybind_action),
-      ),
+      $.chained_keybind_action,
+      $.keybind,
+      $.key_table_keybind,
+    ),
+
+    key_table_keybind: $ => seq(
+      $.keybind_table,
+      optional(repeat($.keybind_modifier)),
+      field("trigger", $.keybind_trigger),
+      token.immediate("="),
+      field("action", $.keybind_action),
+    ),
+
+    keybind: $ => seq(
+      optional(repeat($.keybind_modifier)),
+      field("trigger", $.keybind_trigger),
+      token.immediate("="),
+      field("action", $.keybind_action),
     ),
 
     // Key table for the keybind
     keybind_table: $ => seq(
       field("table", $._key_table_identifier),
-      token.immediate("/")
+      token.immediate("/"),
     ),
 
     // Modifier for the entire keybind
@@ -203,6 +223,10 @@ module.exports = grammar({
           field("argument", alias($._action_arg_value, $.action_argument)),
         ),
       ),
+    ),
+
+    _chained_action: $ => seq(
+        token.immediate("chain="),
     ),
 
     _action_arg_value: $ => choice(
