@@ -749,6 +749,35 @@
         }
       ]
     },
+    "chained_keybind_action": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "chain_operator",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "chain"
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "="
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "keybind_action"
+        }
+      ]
+    },
     "keybind_value": {
       "type": "CHOICE",
       "members": [
@@ -761,59 +790,106 @@
           "value": "clear"
         },
         {
-          "type": "SEQ",
+          "type": "SYMBOL",
+          "name": "chained_keybind_action"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "keybind"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "key_table_keybind"
+        }
+      ]
+    },
+    "key_table_keybind": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "keybind_table"
+        },
+        {
+          "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "keybind_table"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "keybind_modifier"
-                  }
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "FIELD",
-              "name": "trigger",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "keybind_trigger"
+                "name": "keybind_modifier"
               }
             },
             {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "STRING",
-                "value": "="
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "action",
-              "content": {
-                "type": "SYMBOL",
-                "name": "keybind_action"
-              }
+              "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "FIELD",
+          "name": "trigger",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_trigger"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "action",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_action"
+          }
+        }
+      ]
+    },
+    "keybind": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "keybind_modifier"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "trigger",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_trigger"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "action",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_action"
+          }
         }
       ]
     },
@@ -1126,6 +1202,18 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_chained_action": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "chain="
+          }
         }
       ]
     },
