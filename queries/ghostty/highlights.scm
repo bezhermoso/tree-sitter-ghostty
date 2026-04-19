@@ -68,7 +68,8 @@
 [
  (key_qualifier)
  (keybind_modifier)
- ; (keybind_table)
  (theme_variant)
  (command_modifier)
 ] @attribute
+
+(keybind_table) @module
