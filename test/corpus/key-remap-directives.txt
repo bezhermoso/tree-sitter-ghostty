@@ -1,0 +1,21 @@
+============================
+Key Remap Directive - Remaps
+============================
+
+key-remap = super=ctrl
+key-remap = right_ctrl=super
+
+---
+(document
+ (directive
+  (key_remap_directive
+   (property)
+   (key_remap_value
+    (modifier_key)
+    (modifier_key))))
+ (directive
+  (key_remap_directive
+   (property)
+   (key_remap_value
+    (modifier_key)
+    (modifier_key)))))

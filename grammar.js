@@ -33,6 +33,7 @@ module.exports = grammar({
       $.palette_directive,
       $.path_directive,
       $.keybind_directive,
+      $.key_remap_directive,
       $.env_directive,
       $.command_directive,
     ),
@@ -203,11 +204,20 @@ module.exports = grammar({
     chord: $ => sep1(choice($.modifier_key, $.key), "+"),
 
     // Modifier keys
-    modifier_key: $ => choice(
+    modifier_key: _ => choice(
       "shift",
       "ctrl", "control",
       "alt", "option", "opt",
       "super", "cmd", "command",
+    ),
+
+    sided_modifier_key: _ => choice(
+      "left_ctrl", "left_control",
+      "right_ctrl", "right_control",
+      "left_alt", "left_option", "left_opt",
+      "right_alt", "right_option", "right_opt",
+      "left_super", "left_cmd", "left_command",
+      "right_super", "right_cmd", "right_command",
     ),
 
     // Non-modifier keys
@@ -282,6 +292,15 @@ module.exports = grammar({
       ),
       token.immediate(":"),
     ),
+
+    // `key-remap` directive
+    key_remap_directive: $ => directive_seq(alias("key-remap", $.property), $.key_remap_value),
+
+    key_remap_value: $ => seq(
+      field("from", choice($.modifier_key, alias($.sided_modifier_key, $.modifier_key))),
+      token.immediate("="),
+      field("to", choice($.modifier_key, alias($.sided_modifier_key, $.modifier_key))),
+    )
   },
 });
 
