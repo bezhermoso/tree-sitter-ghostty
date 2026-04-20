@@ -756,25 +756,33 @@
           "type": "FIELD",
           "name": "chain_operator",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "chain"
-              },
-              {
-                "type": "IMMEDIATE_TOKEN",
-                "content": {
-                  "type": "STRING",
-                  "value": "="
-                }
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "chain_operator"
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "keybind_action"
+          "type": "FIELD",
+          "name": "action",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_action"
+          }
+        }
+      ]
+    },
+    "chain_operator": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "chain"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
         }
       ]
     },
@@ -807,46 +815,28 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "keybind_table"
+          "type": "FIELD",
+          "name": "table",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keybind_table"
+          }
         },
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "REPEAT",
+              "type": "FIELD",
+              "name": "keybind",
               "content": {
                 "type": "SYMBOL",
-                "name": "keybind_modifier"
+                "name": "keybind"
               }
             },
             {
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "FIELD",
-          "name": "trigger",
-          "content": {
-            "type": "SYMBOL",
-            "name": "keybind_trigger"
-          }
-        },
-        {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "="
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "action",
-          "content": {
-            "type": "SYMBOL",
-            "name": "keybind_action"
-          }
         }
       ]
     },
