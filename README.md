@@ -20,28 +20,6 @@
 <hr>
 <img width="973" alt="SCR-20241229-mogq" src="https://github.com/user-attachments/assets/f6a78843-3ef0-479e-b4dc-2268a2b61ce9" />
 
-
-
-## TODOs
-
-- Grammar
-    - [x] Comments
-    - [x] Raw values
-    - [x] Numbers
-    - [x] Percents
-    - [x] Colors 
-    - [x] Palette
-    - [x] Keybindings
-        - [x] Chords
-        - [x] Modifiers
-        - [x] Actions & arguments
-        - [x] Special keys (e.g. `tab`, `space`, `up`)
-- [x] Tests
-- [x] Capture highlight groups
-- [x] Stable release
-    - [ ] Contribute queries to [nvim-treesitter] (No longer accepting experimental parsers)
-
-
 ## Neovim
 
 ### lazy.nvim
