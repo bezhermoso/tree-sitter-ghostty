@@ -225,6 +225,10 @@
           "named": true
         },
         {
+          "type": "key_remap_directive",
+          "named": true
+        },
+        {
           "type": "keybind_directive",
           "named": true
         },
@@ -355,6 +359,58 @@
           {
             "type": "physical",
             "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "key_remap_directive",
+    "named": true,
+    "fields": {
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "key_remap_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "key_remap_value",
+    "named": true,
+    "fields": {
+      "from": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "modifier_key",
+            "named": true
+          }
+        ]
+      },
+      "to": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "modifier_key",
+            "named": true
           }
         ]
       }
@@ -892,6 +948,38 @@
     "named": false
   },
   {
+    "type": "left_alt",
+    "named": false
+  },
+  {
+    "type": "left_cmd",
+    "named": false
+  },
+  {
+    "type": "left_command",
+    "named": false
+  },
+  {
+    "type": "left_control",
+    "named": false
+  },
+  {
+    "type": "left_ctrl",
+    "named": false
+  },
+  {
+    "type": "left_opt",
+    "named": false
+  },
+  {
+    "type": "left_option",
+    "named": false
+  },
+  {
+    "type": "left_super",
+    "named": false
+  },
+  {
     "type": "light",
     "named": false
   },
@@ -929,6 +1017,38 @@
   },
   {
     "type": "physical",
+    "named": false
+  },
+  {
+    "type": "right_alt",
+    "named": false
+  },
+  {
+    "type": "right_cmd",
+    "named": false
+  },
+  {
+    "type": "right_command",
+    "named": false
+  },
+  {
+    "type": "right_control",
+    "named": false
+  },
+  {
+    "type": "right_ctrl",
+    "named": false
+  },
+  {
+    "type": "right_opt",
+    "named": false
+  },
+  {
+    "type": "right_option",
+    "named": false
+  },
+  {
+    "type": "right_super",
     "named": false
   },
   {

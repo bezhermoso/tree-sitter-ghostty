@@ -75,6 +75,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "key_remap_directive"
+        },
+        {
+          "type": "SYMBOL",
           "name": "env_directive"
         },
         {
@@ -1076,6 +1080,75 @@
         }
       ]
     },
+    "sided_modifier_key": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "left_ctrl"
+        },
+        {
+          "type": "STRING",
+          "value": "left_control"
+        },
+        {
+          "type": "STRING",
+          "value": "right_ctrl"
+        },
+        {
+          "type": "STRING",
+          "value": "right_control"
+        },
+        {
+          "type": "STRING",
+          "value": "left_alt"
+        },
+        {
+          "type": "STRING",
+          "value": "left_option"
+        },
+        {
+          "type": "STRING",
+          "value": "left_opt"
+        },
+        {
+          "type": "STRING",
+          "value": "right_alt"
+        },
+        {
+          "type": "STRING",
+          "value": "right_option"
+        },
+        {
+          "type": "STRING",
+          "value": "right_opt"
+        },
+        {
+          "type": "STRING",
+          "value": "left_super"
+        },
+        {
+          "type": "STRING",
+          "value": "left_cmd"
+        },
+        {
+          "type": "STRING",
+          "value": "left_command"
+        },
+        {
+          "type": "STRING",
+          "value": "right_super"
+        },
+        {
+          "type": "STRING",
+          "value": "right_cmd"
+        },
+        {
+          "type": "STRING",
+          "value": "right_command"
+        }
+      ]
+    },
     "key": {
       "type": "SEQ",
       "members": [
@@ -1568,6 +1641,104 @@
           "content": {
             "type": "STRING",
             "value": ":"
+          }
+        }
+      ]
+    },
+    "key_remap_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "property",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "key-remap"
+            },
+            "named": true,
+            "value": "property"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "key_remap_value"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "key_remap_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "from",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modifier_key"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "sided_modifier_key"
+                },
+                "named": true,
+                "value": "modifier_key"
+              }
+            ]
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "to",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "modifier_key"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "sided_modifier_key"
+                },
+                "named": true,
+                "value": "modifier_key"
+              }
+            ]
           }
         }
       ]
