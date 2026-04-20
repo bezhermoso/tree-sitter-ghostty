@@ -57,7 +57,7 @@
  "+"
  "="
  (keybind_trigger ">")
- (chain_operator "=")
+ (chain_operator)
 ] @operator
 
 ; NOTE: The order here matters!
@@ -74,5 +74,4 @@
 ] @attribute
 
 (keybind_table) @module
-(chain_operator) @keyword
 
