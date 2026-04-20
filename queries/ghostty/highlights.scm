@@ -57,6 +57,7 @@
  "+"
  "="
  (keybind_trigger ">")
+ (chain_operator)
 ] @operator
 
 ; NOTE: The order here matters!
@@ -71,3 +72,6 @@
  (theme_variant)
  (command_modifier)
 ] @attribute
+
+(keybind_table) @module
+

@@ -42,6 +42,7 @@ module.exports = grammar({
     _kebab_case_identifier : _ => sep1(token.immediate(word), token.immediate("-")),
     _snake_case_identifier : _ => snake_case_seq(),
     _snake_case_insensitive_identifier : _ => snake_case_insensitive_seq(),
+    _key_table_identifier : _ => token(/[^\/=+>:\s"']+/),
 
     property : $ => choice($._kebab_case_identifier),
 
@@ -137,15 +138,46 @@ module.exports = grammar({
     keybind_directive: $ => directive_seq(alias("keybind", $.property), $.keybind_value),
 
     // The overall syntax for keybind values
+    //
+    chained_keybind_action: $ => seq(
+      field(
+        "chain_operator",
+        $.chain_operator,
+      ),
+      field("action",
+        $.keybind_action,
+      )
+    ),
+
+    chain_operator: _ => seq(
+      "chain",
+      token.immediate("=")
+    ),
+
     keybind_value: $ => choice(
       $.string,
       "clear",
-      seq(
-        optional(repeat($.keybind_modifier)),
-        field("trigger", $.keybind_trigger),
-        token.immediate("="),
-        field("action", $.keybind_action),
-      ),
+      $.chained_keybind_action,
+      $.keybind,
+      $.key_table_keybind,
+    ),
+
+    key_table_keybind: $ => seq(
+      field("table", $.keybind_table),
+      optional(field("keybind", $.keybind)),
+    ),
+
+    keybind: $ => seq(
+      optional(repeat($.keybind_modifier)),
+      field("trigger", $.keybind_trigger),
+      token.immediate("="),
+      field("action", $.keybind_action),
+    ),
+
+    // Key table for the keybind
+    keybind_table: $ => seq(
+      field("table", $._key_table_identifier),
+      token.immediate("/"),
     ),
 
     // Modifier for the entire keybind
@@ -195,6 +227,10 @@ module.exports = grammar({
           field("argument", alias($._action_arg_value, $.action_argument)),
         ),
       ),
+    ),
+
+    _chained_action: $ => seq(
+        token.immediate("chain="),
     ),
 
     _action_arg_value: $ => choice(

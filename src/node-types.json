@@ -78,6 +78,37 @@
     "fields": {}
   },
   {
+    "type": "chain_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "chained_keybind_action",
+    "named": true,
+    "fields": {
+      "action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_action",
+            "named": true
+          }
+        ]
+      },
+      "chain_operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "chain_operator",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "chord",
     "named": true,
     "fields": {},
@@ -330,6 +361,68 @@
     }
   },
   {
+    "type": "key_table_keybind",
+    "named": true,
+    "fields": {
+      "keybind": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "keybind",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_table",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "keybind",
+    "named": true,
+    "fields": {
+      "action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_action",
+            "named": true
+          }
+        ]
+      },
+      "trigger": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keybind_trigger",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keybind_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "keybind_action",
     "named": true,
     "fields": {
@@ -414,6 +507,11 @@
     }
   },
   {
+    "type": "keybind_table",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "keybind_trigger",
     "named": true,
     "fields": {},
@@ -431,34 +529,21 @@
   {
     "type": "keybind_value",
     "named": true,
-    "fields": {
-      "action": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "keybind_action",
-            "named": true
-          }
-        ]
-      },
-      "trigger": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "keybind_trigger",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "keybind_modifier",
+          "type": "chained_keybind_action",
+          "named": true
+        },
+        {
+          "type": "key_table_keybind",
+          "named": true
+        },
+        {
+          "type": "keybind",
           "named": true
         },
         {
@@ -715,6 +800,10 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -744,6 +833,10 @@
   },
   {
     "type": "background-image",
+    "named": false
+  },
+  {
+    "type": "chain",
     "named": false
   },
   {
