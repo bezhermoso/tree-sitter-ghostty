@@ -686,6 +686,8 @@ Keybind Directive - Key Tables
 
 keybind = vim/cmd+comma=last_tab
 keybind = test_01/cmd+comma=last_tab
+# clear the vim key table
+keybind = vim/
 
 ---
 
@@ -696,24 +698,33 @@ keybind = test_01/cmd+comma=last_tab
    (keybind_value
     (key_table_keybind
      (keybind_table)
-     (keybind_trigger
-      (chord
-       (modifier_key)
-       (key)))
-     (keybind_action
-      (action_name))))))
+     (keybind
+      (keybind_trigger
+       (chord
+        (modifier_key)
+        (key)))
+      (keybind_action
+       (action_name)))))))
  (directive
   (keybind_directive
    (property)
    (keybind_value
     (key_table_keybind
      (keybind_table)
-     (keybind_trigger
-      (chord
-       (modifier_key)
-       (key)))
-     (keybind_action
-      (action_name)))))))
+     (keybind
+      (keybind_trigger
+       (chord
+        (modifier_key)
+        (key)))
+      (keybind_action
+       (action_name)))))))
+(comment)
+  (directive
+   (keybind_directive
+    (property)
+    (keybind_value
+     (key_table_keybind
+      (keybind_table))))))
 
 ===================================
 Keybind Directive - Chained Actions
@@ -730,6 +741,7 @@ keybind = chain=goto_split:left
    (property)
    (keybind_value
 (chained_keybind_action
+    (chain_operator)
     (keybind_action
      (action_name))))))
  (directive
@@ -737,6 +749,7 @@ keybind = chain=goto_split:left
    (property)
    (keybind_value
     (chained_keybind_action
+     (chain_operator)
      (keybind_action
       (action_name)
       (action_argument

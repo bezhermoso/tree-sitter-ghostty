@@ -140,11 +140,18 @@ module.exports = grammar({
     // The overall syntax for keybind values
     //
     chained_keybind_action: $ => seq(
-      field("chain_operator", seq(
-        "chain",
-        token.immediate("=")
-      )),
-      $.keybind_action,
+      field(
+        "chain_operator",
+        $.chain_operator,
+      ),
+      field("action",
+        $.keybind_action,
+      )
+    ),
+
+    chain_operator: _ => seq(
+      "chain",
+      token.immediate("=")
     ),
 
     keybind_value: $ => choice(
@@ -156,11 +163,8 @@ module.exports = grammar({
     ),
 
     key_table_keybind: $ => seq(
-      $.keybind_table,
-      optional(repeat($.keybind_modifier)),
-      field("trigger", $.keybind_trigger),
-      token.immediate("="),
-      field("action", $.keybind_action),
+      field("table", $.keybind_table),
+      optional(field("keybind", $.keybind)),
     ),
 
     keybind: $ => seq(
