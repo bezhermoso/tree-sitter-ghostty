@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "SwiftTreeSitter",
-        "repositoryURL": "https://github.com/ChimeHQ/SwiftTreeSitter",
+        "repositoryURL": "https://github.com/tree-sitter/swift-tree-sitter",
         "state": {
           "branch": null,
           "revision": "08ef81eb8620617b55b08868126707ad72bf754f",
