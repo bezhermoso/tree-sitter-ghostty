@@ -22,6 +22,11 @@
 
 ## Neovim
 
+### Prerequisites
+
+- tree-sitter-cli >= 0.26
+- GNU make
+
 ### lazy.nvim
 
 Add this:
