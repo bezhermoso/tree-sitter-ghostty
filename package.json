@@ -2,6 +2,7 @@
   "name": "tree-sitter-ghostty",
   "version": "0.1.0",
   "description": "Parser for Ghostty configuration files",
+  "type": "module",
   "repository": "github:tree-sitter/tree-sitter-ghostty",
   "license": "MIT",
   "author": {

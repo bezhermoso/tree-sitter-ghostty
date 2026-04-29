@@ -6,6 +6,6 @@ import tree_sitter, tree_sitter_ghostty
 class TestLanguage(TestCase):
     def test_can_load_grammar(self):
         try:
-            tree_sitter.Language(tree_sitter_ghostty.language())
+            Parser(Language(tree_sitter_ghostty.language()))
         except Exception:
             self.fail("Error loading Ghostty grammar")

@@ -11,3 +11,7 @@ Makefile linguist-generated
 CMakeLists.txt linguist-generated
 Package.swift linguist-generated
 go.mod linguist-generated
+
+# Zig bindings
+build.zig linguist-generated
+build.zig.zon linguist-generated
