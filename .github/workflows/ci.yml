@@ -10,16 +10,30 @@ on:
       - src/**
       - queries/**
       - test/**
+      - tests/**
       - bindings/**
       - binding.gyp
+      - lua/**
+      - plugin/**
+      - ftdetect/**
+      - ftplugin/**
+      - Makefile
+      - .github/workflows/ci.yml
   pull_request:
     paths:
       - grammar.js
       - src/**
       - queries/**
       - test/**
+      - tests/**
       - bindings/**
       - binding.gyp
+      - lua/**
+      - plugin/**
+      - ftdetect/**
+      - ftplugin/**
+      - Makefile
+      - .github/workflows/ci.yml
 
 concurrency:
   group: ${{github.workflow}}-${{github.ref}}
@@ -49,3 +63,32 @@ jobs:
           test-rust: ${{runner.os == 'Linux'}}
           test-go: ${{runner.os == 'Windows'}}
           test-swift: ${{runner.os == 'macOS'}}
+
+  nvim-test:
+    name: Test Neovim plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up tree-sitter
+        uses: tree-sitter/setup-action@v2
+        with:
+          tree-sitter-ref: v0.26.8
+      - name: Install Neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: stable
+      - name: Checkout plenary.nvim
+        uses: actions/checkout@v4
+        with:
+          repository: nvim-lua/plenary.nvim
+          path: .deps/plenary.nvim
+      - name: Build parser
+        run: make nvim_install
+      - name: Run plugin tests
+        env:
+          PLENARY_PATH: ${{ github.workspace }}/.deps/plenary.nvim
+        run: |
+          nvim --headless --noplugin -u tests/nvim/minimal_init.lua \
+            -c "PlenaryBustedDirectory tests/nvim {minimal_init='tests/nvim/minimal_init.lua'}"
