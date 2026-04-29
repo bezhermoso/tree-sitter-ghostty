@@ -12,7 +12,7 @@ const number = /[0-9]+(\.[0-9]+)?/;
 const word = /[0-9a-z]+/
 const word_case_insensitive = /[0-9a-z]+/i
 
-module.exports = grammar({
+export default grammar({
   name: "ghostty",
 
   rules: {
