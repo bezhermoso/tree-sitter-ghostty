@@ -96,5 +96,12 @@ nvim_install:
 	mkdir -p parser
 	$(TS) build -o parser/ghostty.so
 
-.PHONY: all install uninstall clean test nvim_install
+# Run the Neovim plugin test suite (plenary.nvim, busted-style).
+# Set PLENARY_PATH to override the plenary lookup; otherwise common locations
+# under ~/.local/share/nvim or .deps/plenary.nvim are tried.
+nvim_test: nvim_install
+	nvim --headless --noplugin -u tests/nvim/minimal_init.lua \
+		-c "PlenaryBustedDirectory tests/nvim {minimal_init='tests/nvim/minimal_init.lua'}"
+
+.PHONY: all install uninstall clean test nvim_install nvim_test
 
