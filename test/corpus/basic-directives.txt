@@ -256,9 +256,9 @@ quick-terminal-size = 100%,800px
    (value
     (tuple
      (adjustment
-      (percent_adjustment))
+      (pixel_adjustment))
      (adjustment
-      (percent_adjustment))))))
+      (pixel_adjustment))))))
  (directive
   (basic_directive
    (property)
@@ -267,4 +267,4 @@ quick-terminal-size = 100%,800px
      (adjustment
       (percent_adjustment))
      (adjustment
-      (percent_adjustment)))))))
+      (pixel_adjustment)))))))

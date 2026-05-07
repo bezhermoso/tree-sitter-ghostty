@@ -74,6 +74,7 @@ export default grammar({
 
     adjustment: $ => choice(
       $.percent_adjustment,
+      $.pixel_adjustment,
       $.numeric_adjustment,
     ),
 
@@ -103,6 +104,17 @@ export default grammar({
           token.immediate(number),
           choice(
             token.immediate("%"),
+          )
+        ),
+      ),
+    ),
+    pixel_adjustment: _ => token(
+      prec(
+        3,
+        seq(
+          optional(choice("-", "+")),
+          token.immediate(number),
+          choice(
             token.immediate("px")
           )
         ),

@@ -42,6 +42,10 @@
         {
           "type": "percent_adjustment",
           "named": true
+        },
+        {
+          "type": "pixel_adjustment",
+          "named": true
         }
       ]
     }
@@ -1026,6 +1030,10 @@
   {
     "type": "physical",
     "named": false
+  },
+  {
+    "type": "pixel_adjustment",
+    "named": true
   },
   {
     "type": "right_alt",
