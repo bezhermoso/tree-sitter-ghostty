@@ -779,6 +779,10 @@
         "required": true,
         "types": [
           {
+            "type": "adjustment",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           }
@@ -788,6 +792,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "adjustment",
+            "named": true
+          },
           {
             "type": "number",
             "named": true

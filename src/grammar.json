@@ -291,8 +291,17 @@
           "type": "FIELD",
           "name": "left",
           "content": {
-            "type": "SYMBOL",
-            "name": "number"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "adjustment"
+              }
+            ]
           }
         },
         {
@@ -306,8 +315,17 @@
           "type": "FIELD",
           "name": "right",
           "content": {
-            "type": "SYMBOL",
-            "name": "number"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "adjustment"
+              }
+            ]
           }
         }
       ]
@@ -510,11 +528,23 @@
               }
             },
             {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "STRING",
-                "value": "%"
-              }
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "%"
+                  }
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "px"
+                  }
+                }
+              ]
             }
           ]
         }

@@ -229,3 +229,42 @@ window-padding-y = 1,2
     (tuple
      (number)
      (number))))))
+
+=============================
+Basic Directive - Size Tuples
+=============================
+
+quick-terminal-size = 10%,10%
+quick-terminal-size = 100px,50px
+quick-terminal-size = 100%,800px
+
+---
+
+(document
+ (directive
+  (basic_directive
+   (property)
+   (value
+    (tuple
+     (adjustment
+      (percent_adjustment))
+     (adjustment
+      (percent_adjustment))))))
+ (directive
+  (basic_directive
+   (property)
+   (value
+    (tuple
+     (adjustment
+      (percent_adjustment))
+     (adjustment
+      (percent_adjustment))))))
+ (directive
+  (basic_directive
+   (property)
+   (value
+    (tuple
+     (adjustment
+      (percent_adjustment))
+     (adjustment
+      (percent_adjustment)))))))
