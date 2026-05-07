@@ -291,8 +291,17 @@
           "type": "FIELD",
           "name": "left",
           "content": {
-            "type": "SYMBOL",
-            "name": "number"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "adjustment"
+              }
+            ]
           }
         },
         {
@@ -306,8 +315,17 @@
           "type": "FIELD",
           "name": "right",
           "content": {
-            "type": "SYMBOL",
-            "name": "number"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "adjustment"
+              }
+            ]
           }
         }
       ]
@@ -335,6 +353,10 @@
         {
           "type": "SYMBOL",
           "name": "percent_adjustment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pixel_adjustment"
         },
         {
           "type": "SYMBOL",
@@ -510,11 +532,68 @@
               }
             },
             {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "%"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "pixel_adjustment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "-"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "+"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
               "type": "IMMEDIATE_TOKEN",
               "content": {
-                "type": "STRING",
-                "value": "%"
+                "type": "PATTERN",
+                "value": "[0-9]+(\\.[0-9]+)?"
               }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "px"
+                  }
+                }
+              ]
             }
           ]
         }

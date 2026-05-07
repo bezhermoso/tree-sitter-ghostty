@@ -42,6 +42,10 @@
         {
           "type": "percent_adjustment",
           "named": true
+        },
+        {
+          "type": "pixel_adjustment",
+          "named": true
         }
       ]
     }
@@ -779,6 +783,10 @@
         "required": true,
         "types": [
           {
+            "type": "adjustment",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           }
@@ -788,6 +796,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "adjustment",
+            "named": true
+          },
           {
             "type": "number",
             "named": true
@@ -1018,6 +1030,10 @@
   {
     "type": "physical",
     "named": false
+  },
+  {
+    "type": "pixel_adjustment",
+    "named": true
   },
   {
     "type": "right_alt",

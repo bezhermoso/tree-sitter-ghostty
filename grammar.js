@@ -61,11 +61,11 @@ export default grammar({
       )
     ),
 
-    // Used by window-padding-{x,y}. Tuples only supports numbers for now.
+    // Used by window-padding-{x,y}, and quick-terminal-size. Tuples only supports numbers & adjustments for now.
     tuple: $ => seq(
-      field("left", $.number),
+      field("left", choice($.number, $.adjustment)),
       token.immediate(","),
-      field("right", $.number),
+      field("right", choice($.number, $.adjustment))
     ),
 
     boolean: _ => choice("true", "false"),
@@ -74,6 +74,7 @@ export default grammar({
 
     adjustment: $ => choice(
       $.percent_adjustment,
+      $.pixel_adjustment,
       $.numeric_adjustment,
     ),
 
@@ -101,7 +102,21 @@ export default grammar({
         seq(
           optional(choice("-", "+")),
           token.immediate(number),
-          token.immediate("%"),
+          choice(
+            token.immediate("%"),
+          )
+        ),
+      ),
+    ),
+    pixel_adjustment: _ => token(
+      prec(
+        3,
+        seq(
+          optional(choice("-", "+")),
+          token.immediate(number),
+          choice(
+            token.immediate("px")
+          )
         ),
       ),
     ),
