@@ -28,11 +28,11 @@
   ],
   "dependencies": {
     "node-addon-api": "^8.1.0",
-    "node-gyp-build": "^4.8.2",
-    "tree-sitter-cli": "^0.24.3"
+    "node-gyp-build": "^4.8.2"
   },
   "devDependencies": {
-    "prebuildify": "^6.0.1"
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.24.3"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.1"
