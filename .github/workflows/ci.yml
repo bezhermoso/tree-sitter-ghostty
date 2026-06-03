@@ -18,6 +18,12 @@ on:
       - ftdetect/**
       - ftplugin/**
       - Makefile
+      - package.json
+      - package-lock.json
+      - Package.swift
+      - Cargo.*
+      - go.mod
+      - pyproject.toml
       - .github/workflows/ci.yml
   pull_request:
     paths:
@@ -33,6 +39,12 @@ on:
       - ftdetect/**
       - ftplugin/**
       - Makefile
+      - package.json
+      - package-lock.json
+      - Package.swift
+      - Cargo.*
+      - go.mod
+      - pyproject.toml
       - .github/workflows/ci.yml
 
 concurrency:
