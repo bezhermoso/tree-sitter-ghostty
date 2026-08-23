@@ -24,6 +24,7 @@ on:
       - Cargo.*
       - go.mod
       - pyproject.toml
+      - .tsqueryrc.json
       - .github/workflows/ci.yml
   pull_request:
     paths:
@@ -45,6 +46,7 @@ on:
       - Cargo.*
       - go.mod
       - pyproject.toml
+      - .tsqueryrc.json
       - .github/workflows/ci.yml
 
 concurrency:
@@ -75,6 +77,21 @@ jobs:
           test-rust: ${{runner.os == 'Linux'}}
           test-go: ${{runner.os == 'Windows'}}
           test-swift: ${{runner.os == 'macOS'}}
+
+  query:
+    name: Validate queries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up tree-sitter
+        uses: tree-sitter/setup-action/cli@v2
+      - name: Build parser
+        run: tree-sitter build
+      - name: Set up ts_query_ls
+        run: curl -fL https://github.com/ribru17/ts_query_ls/releases/latest/download/ts_query_ls-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+      - name: Check queries
+        run: ./ts_query_ls check -f queries/
 
   nvim-test:
     name: Test Neovim plugin
